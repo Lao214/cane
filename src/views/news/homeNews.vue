@@ -80,7 +80,7 @@ export default {
     cursor: pointer;
 }
 .aNew:hover {
-    /* color: #32b753; */
+    /* color: #326bb7; */
     border-bottom: 1px #32b753 solid;
 }
 .homeback:hover {

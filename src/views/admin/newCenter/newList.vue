@@ -5,12 +5,12 @@
                 <el-row>
                     <el-col :span="9">
                         <el-form-item label="标题关键字" style="">
-                            <el-input v-model="searchObj.username" style="width: 95%" placeholder="工号" />
+                            <el-input v-model="searchObj.username" style="width: 95%" placeholder="关键词" />
                         </el-form-item>
                     </el-col>
                     <el-col :span="9">
                         <el-form-item label="关键字">
-                            <el-input v-model="searchObj.nickname" style="width: 95%" placeholder="姓名" />
+                            <el-input v-model="searchObj.nickname" style="width: 95%" placeholder="" />
                         </el-form-item>
                     </el-col>
                     <el-col :span="6">
@@ -27,7 +27,7 @@
                 <el-table-column label="操作" align="center" fixed="right">
                     <template slot-scope="scope">
                         <el-button type="primary" icon="el-icon-edit" size="mini" title="修改" @click="edit(scope.row.newKey)" />
-                        <el-button type="danger" icon="el-icon-delete" size="mini" title="删除" @click="removeDataById(scope.row.id)" />
+                        <el-button type="danger" icon="el-icon-delete" size="mini" title="删除" @click="del(scope.row.id)" />
                     </template>
                 </el-table-column>
             </el-table>
@@ -37,6 +37,7 @@
 
 <script>
 import newApi from '@/api/newApi'
+import { del } from 'vue'
 
 export default {
     data() {
@@ -73,6 +74,23 @@ export default {
                 this.total = response.data.data.total
             })
         },
+        del(id) {
+            this.$confirm('此操作将永久删除该文章, 是否继续?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            }).then(() => {
+                newApi.removeById(id).then(res => {
+                    if(res.code === 200) {
+                        this.$message({
+                            type: 'success',
+                            message: '操作成功!'
+                        })
+                        this.fetchData()
+                    }
+                })
+            })
+        }
     }
 }
 </script>

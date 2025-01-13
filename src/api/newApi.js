@@ -49,5 +49,29 @@ export default {
             url: `${api_name}/getHomeNews`,
             method: 'get' // 提交方式
         })
+    },
+    removeById(id) {
+        return request({
+            // 接口路径
+            url: `${api_name}/removeById/${id}`,
+            method: 'delete' // 提交方式
+        })
+    },
+    insertImgToNew(formData) {
+        return request({
+            url: `${api_name}/insertImgToNew`,
+            method: 'post',
+            data: formData,
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+        })
+    },
+    removeImgListInNew(formData) {
+        return request({
+            url: `${api_name}/removeImgListInNew`,
+            method: 'post',
+            data: formData,
+        })
     }
 }
