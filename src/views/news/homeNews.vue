@@ -80,12 +80,12 @@ export default {
     cursor: pointer;
 }
 .aNew:hover {
-    /* color: #326bb7; */
-    border-bottom: 1px #326bb7 solid;
+    /* color: #32b753; */
+    border-bottom: 1px #32b753 solid;
 }
 .homeback:hover {
-    color: #326bb7;
-    border-bottom: 1px solid #326bb7;
+    color: #32b753;
+    border-bottom: 1px solid #32b753;
     cursor: pointer;
 }
 .newCenter-body {

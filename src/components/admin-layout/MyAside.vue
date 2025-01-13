@@ -3,7 +3,7 @@
         <div class="aside-body">
             <div class="aside-body-left">
                 <div class="left-icon" style="margin-top: 20px;margin-bottom: 40px;">
-                    <img src="../../assets/icon/favicon.png" alt="">
+                    <img src="../../assets/icon/favicon.png" style="width: 4rem;height: 4rem;" alt="">
                 </div>
 
                 <div class="left-icon" @click="switchMenus(1)" :style="{ background: menuTitle === '用户管理' ? '#00000037' : '' }">
@@ -23,18 +23,18 @@
 
                 <div class="left-icon" @click="switchMenus(4)" :style="{ background: menuTitle === '资源共享' ? '#00000037' : '' }">
                     <svg t="1715687949328" class="icon" viewBox="0 0 1090 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7734" width="28" height="28"><path d="M1026.60096 46.08h-849.92a10.24 10.24 0 0 0-10.24 10.24v348.16h102.4V250.88h665.6v256h102.4V56.32a10.24 10.24 0 0 0-10.24-10.24z m-92.16 153.6h-665.6V97.28h665.6v102.4z m119.10656 508.29312c13.25568-13.14304-157.80864 181.4272-157.80864 181.4272h-321.81248c-76.9024 0-221.00992-98.17088-380.16 21.4528C181.84704 897.69472 20.48 729.00096 20.48 729.00096s293.54496-178.3296 309.43744-187.5456c119.36256-57.8304 206.88896 33.32096 238.70976 33.32096h250.18368c39.78752 0 84.8896 77.98272 0 104.27904h-207.72352s3.08224 42.496 44.18048 42.496h201.59488s83.95776-83.26144 97.21856-97.7152c33.15712-43.37152 60.14464-3.49184 60.14464-3.49184s99.00544-5.70368 39.3216 87.6288z" p-id="7735" fill="#FFFFFF"></path></svg>
-                    <h5 style="margin: 0;color: #FFFFFF;">资源共享</h5>
+                    <h5 style="margin: 0;color: #FFFFFF;">基地数据</h5>
                 </div>
 
-                <div class="left-icon" @click="switchMenus(5)" :style="{ background: menuTitle === '数据统计' ? '#00000037' : '' }">
+                <!-- <div class="left-icon" @click="switchMenus(5)" :style="{ background: menuTitle === '数据统计' ? '#00000037' : '' }">
                     <svg t="1715688648939" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="48578" width="28" height="28"><path d="M319.6 499.2 192 499.2l0 256.3 127.6 0L319.6 499.2zM511.5 242.9 383.9 242.9l0 511.5 127.6 0L511.5 242.9zM1023.1 818.8 64.3 818.8 64.3 115.3 0 115.3l0 767.8 1023.1 0L1023.1 818.8zM703.5 371.6 575.9 371.6l0 383.9 127.6 0L703.5 371.6zM895.4 179.6 767.8 179.6l0 575.9 127.6 0L895.4 179.6z" fill="#FFFFFF" p-id="48579"></path></svg>
                     <h5 style="margin: 0;color: #FFFFFF;">数据统计</h5>
-                </div>
+                </div> -->
 
-                <div class="left-icon" @click="switchMenus(6)" :style="{ background: menuTitle === '系统管理' ? '#00000037' : '' }">
+                <!-- <div class="left-icon" @click="switchMenus(6)" :style="{ background: menuTitle === '系统管理' ? '#00000037' : '' }">
                     <svg t="1715688696109" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="49610" width="28" height="28"><path d="M933.79 610.25c-53.726-93.054-21.416-212.304 72.152-266.488l-100.626-174.292c-28.75 16.854-62.176 26.518-97.846 26.518-107.536 0-194.708-87.746-194.708-195.99H411.504c0.266 33.41-8.074 67.282-25.958 98.252-53.724 93.056-173.156 124.702-266.862 70.758L18.06 343.3c28.97 16.472 54.05 40.588 71.886 71.478 53.638 92.908 21.512 211.92-71.708 266.224l100.626 174.292c28.65-16.696 61.916-26.254 97.4-26.254 107.196 0 194.144 87.192 194.7 194.958h201.254c-0.086-33.074 8.272-66.57 25.966-97.218 53.636-92.906 172.776-124.594 266.414-71.012l100.626-174.29c-28.78-16.466-53.692-40.498-71.434-71.228zM512 719.332c-114.508 0-207.336-92.824-207.336-207.334 0-114.508 92.826-207.334 207.336-207.334s207.332 92.826 207.332 207.334c-0.002 114.51-92.824 207.334-207.332 207.334z" p-id="49611" fill="#FFFFFF"></path></svg>
                     <h5 style="margin: 0;color: #FFFFFF;">系统管理</h5>
-                </div>
+                </div> -->
 
                 <div class="left-icon" @click="logout()">
                     <svg t="1715741375700" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="55944" width="28" height="28"><path d="M512.1 956.08c-238.49 0-432.52-191.76-432.52-427.45 0-104.39 38.48-204.88 108.31-283 19.41-21.68 41.23-41.59 64.87-59.13A431.644 431.644 0 0 1 296 158.26c19.83-11.3 44.97-4.42 56.2 15.33 11.28 19.75 4.42 44.93-15.33 56.2a356.82 356.82 0 0 0-35.06 22.89c-19.13 14.2-36.79 30.29-52.48 47.87-56.36 63-87.37 144.01-87.37 228.09 0 190.27 157.07 345.07 350.14 345.07S862.24 718.9 862.24 528.63c0-84.07-31.02-165.05-87.35-228.09a350.05 350.05 0 0 0-52.54-47.87c-11.14-8.29-22.95-15.97-35.04-22.89-19.75-11.3-26.59-36.45-15.31-56.2 11.3-19.75 36.43-26.67 56.22-15.33a443.807 443.807 0 0 1 43.18 28.2c23.57 17.5 45.42 37.41 64.91 59.17 69.85 78.16 108.31 178.65 108.31 283 0 235.7-194.03 427.46-432.52 427.46z" fill="#FFFFFF" p-id="55945"></path><path d="M512.1 564.75c-22.75 0-41.19-18.42-41.19-41.19V111.63c0-22.77 18.44-41.19 41.19-41.19s41.19 18.42 41.19 41.19v411.93c0 22.77-18.44 41.19-41.19 41.19z" fill="#FFFFFF" p-id="55946"></path></svg>
@@ -42,14 +42,8 @@
                 </div>
             </div>
             <div class="aside-body-right">
-                <!-- <div class="level-one">
-                    <span>用户管理</span>
-                </div>
-                <div class="level-two">
-                    <span>用户管理</span>
-                </div> -->
                 <h4 style="margin-left: 15px;">{{ menuTitle }}</h4>
-                <div @click="clickMenus(item)" v-for="(item,index) in menus" :key="index" :style="{ background: menuSelected === item.id ? '#326cb73a' : '', color: menuSelected === item.id ? '#000' : '' }" class="menu-item">
+                <div @click="clickMenus(item)" v-for="(item,index) in menus" :key="index" :style="{ background: menuSelected === item.id ? '#32b7533a' : '', color: menuSelected === item.id ? '#000' : '' }" class="menu-item">
                     <i :class="item.icon"></i> <span>{{ item.name }}</span>
                 </div>
             </div>
@@ -85,18 +79,6 @@ export default {
                     name: '发布新闻',
                     router: '/admin/new'
                 },
-                {
-                    id: "3",
-                    icon: 'el-icon-menu',
-                    name: '发布公告',
-                    router: ''
-                },
-                {
-                    id: "4",
-                    icon: 'el-icon-tickets',
-                    name: '活动信息',
-                    router: ''
-                }
             ],
             menusThree: [
                 {
@@ -265,7 +247,7 @@ export default {
     width: 87px;
     /* background: #e8e8e8  */
     padding:0 5px;
-    background: #326bb7;
+    background: #32b753;
     overflow: scroll;
     /* padding: 40px 0; */
     /* display: flex;

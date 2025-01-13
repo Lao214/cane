@@ -7,13 +7,9 @@
         </div>
         <div style="margin-top: 30px;">
             <el-divider>
-                <span style="font-size: 17px;">多元 · </span>
-                <span style="font-size: 17px;">公平 · </span>
-                <span style="font-size: 17px;">包容 </span>
-                ，
-                <span style="font-size: 17px;">共建 · </span>
-                <span style="font-size: 17px;">共享 · </span>
-                <span style="font-size: 17px;">共荣</span>
+                <span style="font-size: 17px;">我们 · </span>
+                <span style="font-size: 17px;">用心 · </span>
+                <span style="font-size: 17px;">为您做得更好 </span>
             </el-divider>
         </div>
         <!-- 热门推荐 -->
@@ -30,27 +26,12 @@
                 <span style="position: absolute;left: 7px;bottom: 4px;color: aliceblue;color: #262626;font-size: 14px;">已被使用 {{ item.cardUsers }} 人次</span>
             </div>
         </div>
-        <button class="btn2" style="width: 30%;min-width: 457px;margin-top: 47px;border: 1px solid;" @click="goMoreResour">查看更多 ></button>
-        <!-- 最新上线 -->
-        <h1 style="margin-top: 110px;">最新上线</h1>
-        <div class="popular">
-            <div v-for="(item,index) in cardList" :key="index" class="popular-card">
-                <img :src="item.cardIcon" style="width: 36px;height: 36px;margin-top: 20px;" alt="">
-                <h3 class="title-text" style="margin-top: 10px;">{{ item.cardTitle }}</h3>
-                <div style="height: 60px;">
-                    <p class="card-summary-text">{{ item.cardSummary }}</p>
-                </div>
-                <button class="btn2">开始使用</button>
-                <span style="background-color: #39bda7;position: absolute;right: 11px;top: 7px;height: 25px;width: 25px;color: aliceblue;">{{ item.cardType }}</span>
-                <span style="position: absolute;left: 7px;bottom: 4px;color: aliceblue;color: #262626;font-size: 14px;">已被使用 {{ item.cardUsers }} 人次</span>
-            </div>
-        </div>
         <button class="btn2" style="width: 30%;min-width: 457px;margin-top: 47px;border: 1px solid;">查看更多 ></button>
         <!-- 新闻模块 -->
         <div style="margin-top: 97px;margin-bottom: 40px;display: flex;width: 100%;justify-content: space-between;">
             <div class="news-left">
                 <div class="news-header">
-                    <h2>最新点评</h2>
+                    <h2>技术要领</h2>
                     <h5 style="color: rgb(151 151 151);">更多 ></h5>
                 </div>
                 <div style="min-height: 77%;width: 100%;text-align: left;">
@@ -64,7 +45,7 @@
             </div>
             <div class="news-right">
                 <div class="news-header">
-                    <h2>相关资讯</h2>
+                    <h2>行业资讯</h2>
                     <h5 class="more" @click="goHomeNews()">更多 ></h5>
                 </div>
                 <div style="min-height: 77%;width: 100%;text-align: left;">
@@ -218,7 +199,7 @@ export default {
   font-size: 16px;
   line-height: 25px;
   color: #fff;
-  background: #326bb7;
+  background: #32b753;
   border: 1px solid #CDD9ED;
   font-weight: bold;
   transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
@@ -307,18 +288,18 @@ export default {
   letter-spacing: 1px;
   text-decoration: none;
   /* color: #0e79b7; */
-  color: #326bb7;
+  color: #32b753;
   background: transparent;
   cursor: pointer;
   transition: ease-out 0.5s;
-  border: 2px solid #326bb7;
+  border: 2px solid #32b753;
   /* border-radius: 10px; */
-  box-shadow: inset 0 0 0 0 #326bb7;
+  box-shadow: inset 0 0 0 0 #32b753;
 }
 
 .btn2:hover {
   color: white;
-  box-shadow: inset 0 -100px 0 0 #326bb7;
+  box-shadow: inset 0 -100px 0 0 #32b753;
 }
 
 .btn2:active {
@@ -363,7 +344,7 @@ export default {
 }
 
 .truncate:hover {
-    border-bottom: #326bb7 1px solid;
+    border-bottom: #32b753 1px solid;
     color: #39bda7;
 }
 
@@ -395,6 +376,6 @@ export default {
     cursor: pointer;
 }
 .more:hover {
-    color: #326bb7;
+    color: #32b753;
 }
 </style>

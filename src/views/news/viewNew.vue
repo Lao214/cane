@@ -105,8 +105,8 @@ export default {
         color: rgb(146, 146, 146);
     }
     .homeback:hover {
-        color: #326bb7;
-        border-bottom: 1px solid #326bb7;
+        color: #32b753;
+        border-bottom: 1px solid #32b753;
         cursor: pointer;
     }
 </style>

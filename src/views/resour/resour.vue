@@ -151,7 +151,7 @@ export default {
   font-size: 16px;
   line-height: 25px;
   color: #fff;
-  background: #326bb7;
+  background: #32b753;
   border: 1px solid #CDD9ED;
   font-weight: bold;
   transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
@@ -203,7 +203,7 @@ export default {
 .downFile {
     font-size: 14px;
     color: white;
-    background: #326bb7;
+    background: #32b753;
     padding: 4px 7px;
     /* border: 1px #cecece solid; */
     cursor: pointer;

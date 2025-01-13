@@ -161,7 +161,7 @@ export default {
         padding: 11px;
         color: white;
         /* 调整渐变以适应动画，增加背景尺寸使动画可见 */
-        background:#326bb7;
+        background:#32b753;
         /* border-radius: 7px; */
         cursor: pointer;
         font-weight: 700;
@@ -183,7 +183,7 @@ export default {
         position: absolute;
         font-size: 24px;
         color: white;
-        background: #0e79b7;
+        background: #32b753;
         /* border:1px solid white ; */
         width: 36px;
         height: 36px;

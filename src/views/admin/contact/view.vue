@@ -11,7 +11,7 @@
                 <label class="label">发送时间：</label> <input class="inputs" v-model="one.createTime" disabled>
             </div>
             <div class="item">
-                <label class="label">反馈内容：</label> <textarea class="inputs" style="border: 1px #326bb7 solid;padding:5px 10px;min-height: 200px;" disabled v-model="one.contactText"></textarea>
+                <label class="label">反馈内容：</label> <textarea class="inputs" style="border: 1px #32b753 solid;padding:5px 10px;min-height: 200px;" disabled v-model="one.contactText"></textarea>
             </div>
             <div style="text-align: right;">
                 <button class="btn2" @click="backMsgList">返回列表</button>
@@ -74,7 +74,7 @@ export default {
     border: none;
     font-size: 19px;
     color: #39bda7;
-    border-bottom: 1px #326bb7 solid;
+    border-bottom: 1px #32b753 solid;
     background: #ffffff00;
 }
 
@@ -88,18 +88,18 @@ export default {
   letter-spacing: 1px;
   text-decoration: none;
   /* color: #0e79b7; */
-  color: #326bb7;
+  color: #32b753;
   background: transparent;
   cursor: pointer;
   transition: ease-out 0.5s;
-  border: 1.2px solid #326bb7;
+  border: 1.2px solid #32b753;
   /* border-radius: 10px; */
-  box-shadow: inset 0 0 0 0 #326bb7;
+  box-shadow: inset 0 0 0 0 #32b753;
 }
 
 .btn2:hover {
   color: white;
-  box-shadow: inset 0 -100px 0 0 #326bb7;
+  box-shadow: inset 0 -100px 0 0 #32b753;
 }
 
 .btn2:active {

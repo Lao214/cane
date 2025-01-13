@@ -1,7 +1,7 @@
 <template>
     <div class="header-body">
         <div>
-          <span>欢迎登录多元融合功能平台</span>
+          <span>欢迎登录 <a style="color: #32b753;font-weight: 500;">甘蔗农情专家数据库</a> 管理后台</span>
         </div>
         <label class="dropdown">
             <div class="dd-button">

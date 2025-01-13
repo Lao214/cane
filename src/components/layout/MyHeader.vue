@@ -1,16 +1,14 @@
 <template>
     <div class="home-header">
         <div class="logo">
-            <img src="../../assets/icon/favicon.jpg" style="width: 64px; height: 64px;">
-            <span style="color: #fff;font-size: 24px;font-weight: 500;">多元融合功能平台</span>
+            <img src="https://www.gxu.edu.cn/images/logo2.png" style="width: 10rem; height: 3rem;">
+            <!-- <span style="color: #fff;font-size: 24px;font-weight: 500;">多元融合功能平台</span> -->
         </div>
         <div class="nav">
-            <span @click="goResours('选')" class="link-3" >选</span>
-            <span class="link-3" >育</span>
-            <span class="link-3" >用</span>
-            <span class="link-3" >留</span>
-            <span class="link-3" >更多</span>
-            <span class="link-3" >实用工具</span>
+            <span class="link-3" >首页</span>
+            <span class="link-3" >团队介绍 </span>
+            <span class="link-3" >项目背景</span>
+            <span class="link-3" >基地数据</span>
             <span class="link-3" @click="contractUs" >联系我们</span>
         </div>
 
@@ -25,10 +23,6 @@
               </div>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item><span @click="logout">注销</span></el-dropdown-item>
-                <!-- <el-dropdown-item>狮子头</el-dropdown-item>
-                <el-dropdown-item>螺蛳粉</el-dropdown-item>
-                <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-                <el-dropdown-item divided>蚵仔煎</el-dropdown-item> -->
               </el-dropdown-menu>
             </el-dropdown>
         </div>
@@ -133,7 +127,7 @@ nav {
 .home-header {
     height: 70px;
     /* background: #725ac1; */
-    background: #326cb7;
+    background: #32b753;
     display: flex;
     align-items: center;
     justify-content: space-between;

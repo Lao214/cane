@@ -247,7 +247,7 @@ export default {
   font-size: 16px;
   line-height: 25px;
   color: #fff;
-  background: #326bb7;
+  background: #32b753;
   border: 1px solid #CDD9ED;
   font-weight: bold;
   transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
@@ -325,14 +325,14 @@ export default {
 }
 .radio-btn-group .radio input[type=radio]:checked + label {
     background: #326cb723;
-    color: #326bb7;
+    color: #32b753;
     /* border-color: #2196F3; */
 }
 
 /* 返回首页 */
 .homeback:hover {
-    color: #326bb7;
-    border-bottom: 1px solid #326bb7;
+    color: #32b753;
+    border-bottom: 1px solid #32b753;
     cursor: pointer;
 }
 
@@ -387,18 +387,18 @@ export default {
   letter-spacing: 1px;
   text-decoration: none;
   /* color: #0e79b7; */
-  color: #326bb7;
+  color: #32b753;
   background: transparent;
   cursor: pointer;
   transition: ease-out 0.5s;
-  border: 2px solid #326bb7;
+  border: 2px solid #32b753;
   /* border-radius: 10px; */
-  box-shadow: inset 0 0 0 0 #326bb7;
+  box-shadow: inset 0 0 0 0 #32b753;
 }
 
 .btn2:hover {
   color: white;
-  box-shadow: inset 0 -100px 0 0 #326bb7;
+  box-shadow: inset 0 -100px 0 0 #32b753;
 }
 
 .btn2:active {

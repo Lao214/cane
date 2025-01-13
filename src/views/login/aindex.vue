@@ -11,7 +11,7 @@
         </div>
         <div class="login-form">
             <div style="width: 50%;background: #ffffff; display: flex;justify-content: center;align-items: center;border-radius:11px 0 0 11px;">
-                <img src="@/assets/chahua/演示.png" style="width: 79%;height: 59%;border-radius: 11px;" alt="">
+                <img src="@/assets/chahua/科研数据.png" style="width: 79%;height: 59%;border-radius: 11px;" alt="">
             </div>
             <div style="width: 50%;">
                 <div style="padding: 40px 30px 20px 30px;">
@@ -95,7 +95,7 @@ export default {
 <style scoped>
 .login-body {
     height: 100vh;
-    background: linear-gradient(to bottom, #7eacdb, #326bb7);
+    background: linear-gradient(to bottom, #b1db7e, #32b753);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -159,7 +159,7 @@ export default {
         padding: 11px;
         color: white;
         /* 调整渐变以适应动画，增加背景尺寸使动画可见 */
-        background:#326bb7;
+        background:#32b753;
         border-radius: 7px;
         cursor: pointer;
         font-weight: 700;
