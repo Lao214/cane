@@ -7,7 +7,7 @@ import { getToken } from '@/utils/auth'
 
 import { Button, Select, Message, Avatar, Row, Col, Divider, Dialog, Rate, DatePicker, Option, Container, Header, Aside, Main, Badge,
   Form, FormItem, Input, Table, TableColumn, Pagination, MessageBox, Checkbox, CheckboxGroup, Tree, Radio, RadioGroup, InputNumber,
-  Tooltip, RadioButton, Breadcrumb, BreadcrumbItem, Loading, Dropdown, DropdownItem, DropdownMenu, Tag, Tabs, TabPane
+  Tooltip, RadioButton, Breadcrumb, BreadcrumbItem, Loading, Dropdown, DropdownItem, DropdownMenu, Tag, Tabs, TabPane, Cascader
 } from 'element-ui'
 
 Vue.component(Button.name, Button)
@@ -50,6 +50,7 @@ Vue.component(Pagination.name, Pagination)
 Vue.component(Checkbox.name, Checkbox)
 Vue.component(CheckboxGroup.name, CheckboxGroup)
 Vue.component(Tree.name, Tree)
+Vue.component(Cascader.name, Cascader)
 
 Vue.prototype.$message = Message
 

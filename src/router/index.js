@@ -114,6 +114,11 @@ export const constantRoutes = [
                 component: () => import( '@/views/admin/resour/resourList.vue'),
                 title: '甘蔗列表',
             },
+            {
+                path: '/admin/category',
+                component: () => import( '@/views/admin/resour/category.vue'),
+                title: '分类管理',
+            },
         ]
     },
     // 用户端路由集

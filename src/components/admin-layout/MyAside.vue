@@ -97,9 +97,9 @@ export default {
             menusFour: [
                 {
                     id: "6",
-                    icon: 'el-icon-share',
-                    name: '甘蔗列表',
-                    router: '/admin/resourList'
+                    icon: 'el-icon-s-operation',
+                    name: '分类管理',
+                    router: '/admin/category'
                 },
                 {
                     id: "7",
