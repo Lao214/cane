@@ -1,6 +1,9 @@
 <template>
     <div class="body">
         <!-- 搜索框 -->
+        <div style="margin-bottom: 2rem;">
+            <img src="../../assets/linshi/sugarcane1920.png" style="width: 90vw;border-radius: 1rem;" alt="">
+        </div>
         <div class="input-container">
             <input v-model="keyword" placeholder="用搜索更简单" type="text" class="input">
             <span @click="search">立刻搜索</span>
@@ -21,12 +24,12 @@
                 <div style="height: 60px;">
                     <p class="card-summary-text">{{ item.cardSummary }}</p>
                 </div>
-                <button class="btn2" @click="viewResour(item)">开始使用</button>
+                <button class="btn2" @click="viewResour(item)">查看详情</button>
                 <span style="background-color: #39bda7;position: absolute;right: 11px;top: 7px;height: 25px;width: 25px;color: aliceblue;">{{ item.cardType }}</span>
-                <span style="position: absolute;left: 7px;bottom: 4px;color: aliceblue;color: #262626;font-size: 14px;">已被使用 {{ item.cardUsers }} 人次</span>
+                <span style="position: absolute;left: 7px;bottom: 4px;color: aliceblue;color: #262626;font-size: 14px;">已阅读 {{ item.cardUsers }} 人次</span>
             </div>
         </div>
-        <button class="btn2" style="width: 30%;min-width: 457px;margin-top: 47px;border: 1px solid;">查看更多 ></button>
+        <button class="btn2" style="width: 30%;min-width: 457px;margin-top: 47px;border: 1px solid;" @click="goMoreResour">查看更多 ></button>
         <!-- 新闻模块 -->
         <div style="margin-top: 97px;margin-bottom: 40px;display: flex;width: 100%;justify-content: space-between;">
             <div class="news-left">
@@ -60,6 +63,10 @@
                 </div>
             </div>
         </div>
+        <div class="zhuanjia">
+            <img src="../../assets/icon/QandA1.png" style="width: 3.2rem;height: 3.2rem;" alt="">
+            <p style="margin: 0;font-weight: 500;color: #ffffff;font-size: 1.2rem;">专家答疑</p>
+        </div>
     </div>
 </template>
 
@@ -73,31 +80,31 @@ export default {
             cardList: [
                 {
                     cardType: '选',
-                    cardTitle: '岗位适应性评估',
-                    cardIcon: 'http://10.134.149.222:9000/duogongneng/evaluation.png',
+                    cardTitle: '果蔗',
+                    cardIcon: require('@/assets/icon/甘蔗.png'),
                     cardSummary: '帮助您评估哪些岗位适合不同类型的残疾人，便于招募及岗位安排。',
                     cardUsers: 278
                 },
                 {
                     cardType: '育',
-                    cardTitle: '常用手语宝典',
-                    cardIcon: 'http://10.134.149.222:9000/duogongneng/knowledgeCollection.png',
+                    cardTitle: '糖蔗',
+                    cardIcon: require('@/assets/icon/甘蔗2.png'),
                     cardSummary: '带你走进无声的世界，帮助您了解工广常用手语、日常生活常用子语菱这通技巧等知识。',
                     cardUsers: 12
                 },
                 {
                     cardType: '育',
-                    cardTitle: '培训开展指南',
-                    cardIcon: 'http://10.134.149.222:9000/duogongneng/designCompass.png',
+                    cardTitle: '面性甘蔗',
+                    cardIcon: require('@/assets/icon/面性甘蔗.png'),
                     cardSummary: '帮助您如何开展残疾人教育培训，培训技巧、培训方式。',
-                    cardUsers: 3880
+                    cardUsers: 388
                 },
                 {
-                    cardType: '用',
-                    cardTitle: '无障碍设计指南',
-                    cardIcon: 'http://10.134.149.222:9000/duogongneng/designCompass.png',
+                    cardType: '育',
+                    cardTitle: '野生种',
+                    cardIcon: require('@/assets/icon/ganzhe.png'),
                     cardSummary: '帮助您如何进行无障碍设计，含工作场所及生活场所。',
-                    cardUsers: 100082
+                    cardUsers: 324
                 }
             ],
             news:[]
@@ -149,8 +156,9 @@ export default {
 
 <style scoped>
 .body {
-  padding-top: 177px;
-  margin: 0 5vw;
+  padding-top: 5rem;
+  margin-left: 5vw;
+  margin-right: 5vw;
   background: white;
 }
 
@@ -377,5 +385,18 @@ export default {
 }
 .more:hover {
     color: #32b753;
+}
+
+.zhuanjia {
+    position: fixed;
+    right: 1rem;
+    top: 50%;
+    background: #32b753;
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+.zhuanjia:hover {
+    background: yellowgreen;
 }
 </style>

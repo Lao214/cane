@@ -1,6 +1,6 @@
 <template>
     <div class="body">
-        <p style="position: absolute;top: 65px;left: 19px;"> <a class="homeback" @click="goHome">首页</a> > <a class="homeback" @click="goResours">更多资源</a> > {{ toolTitle }}</p>
+        <p style="position: absolute;top: 65px;left: 19px;"> <a class="homeback" @click="goHome">首页</a> > <a class="homeback" @click="goResours">查看详情</a> > {{ toolTitle }}</p>
         <!-- 搜索框 -->
         <div class="input-container">
             <input v-model="searchObj.keyword" placeholder="用搜索更简单" type="text" class="input">

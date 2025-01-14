@@ -5,7 +5,7 @@
             <!-- <span style="color: #fff;font-size: 24px;font-weight: 500;">多元融合功能平台</span> -->
         </div>
         <div class="nav">
-            <span class="link-3" >首页</span>
+            <span class="link-3" @click="goByHeader('/home')" >首页</span>
             <span class="link-3" >团队介绍 </span>
             <span class="link-3" >项目背景</span>
             <span class="link-3" >基地数据</span>
@@ -17,13 +17,13 @@
         </div>
         <div  v-if="nickname" class="login">
             <el-dropdown>
-              <div style="display: flex;align-items: center;color: #fff;">
-                <img :src=avatar style="width: 36px;height: 36px;border-radius: 50%;">
-                <span style="margin-left: 7px;">{{ nickname ? nickname : '无' }}</span><i class="el-icon-arrow-down el-icon--right"></i>
-              </div>
-              <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item><span @click="logout">注销</span></el-dropdown-item>
-              </el-dropdown-menu>
+                <div style="display: flex;align-items: center;color: #fff;">
+                    <img :src=avatar style="width: 36px;height: 36px;border-radius: 50%;">
+                    <span style="margin-left: 7px;">{{ nickname ? nickname : '无' }}</span><i class="el-icon-arrow-down el-icon--right"></i>
+                </div>
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item><span @click="logout">注销</span></el-dropdown-item>
+                </el-dropdown-menu>
             </el-dropdown>
         </div>
     </div>
@@ -67,6 +67,12 @@ export default {
       this.avatar = null
       this.nickname = null
       this.changeText = '首页'
+    },
+    goByHeader(route) {
+        if(this.$router.currentRoute.path === route) {
+            return
+        }
+        this.$router.push(route)
     },
     changeHomeOrLogin() {
       if(this.$router.currentRoute.path === '/login') {

@@ -1,13 +1,13 @@
 <template>
     <div class="body">
-        <p style="position: absolute;top: 65px;left: 19px;"> <a class="homeback" @click="goHome">首页</a> > <a>工具资源( {{ searchObj.firstType }} )</a> </p>
+        <p style="position: absolute;top: 65px;left: 19px;"> <a class="homeback" @click="goHome">首页</a> > <a>查看更多</a> </p>
         <!-- 搜索框 -->
         <div class="input-container">
             <input v-model="searchObj.keyword" placeholder="用搜索更简单" type="text" class="input">
             <span @click="search">立刻搜索</span>
         </div>
 
-        <div style="margin-top: 27px;">
+        <!-- <div style="margin-top: 27px;">
             <el-tabs v-model="searchObj.firstType" @tab-click="handleClick">
                 <el-tab-pane name="全部">
                     <span slot="label" style="display: flex;align-items: center;">
@@ -45,9 +45,9 @@
                     </span>
                 </el-tab-pane>
             </el-tabs>
-        </div>
+        </div> -->
 
-        <div style="margin-top: 14px;display: flex;justify-content: space-between;">
+        <!-- <div style="margin-top: 14px;display: flex;justify-content: space-between;">
             <div class="radio-btn-group">
                 <div class="radio">
                     <input type="radio" name="radio" value="all" checked="checked" v-model="searchObj.resourType" id="all"/>
@@ -81,7 +81,7 @@
                     <label for="times">最新发布</label>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="popular">
             <div v-for="(item,index) in cardList" :key="index" class="popular-card">
@@ -105,22 +105,19 @@ export default {
     data() {
         return {
             searchObj: {
-                firstType: '全部',
-                resourType: 'all',
-                sortType: 'nums',
                 keyword: ''
             },
             cardList: [
                 {
                     cardType: '选',
-                    cardTitle: '岗位适应性评估',
+                    cardTitle: '果蔗',
                     cardIcon: 'http://10.134.149.222:9000/duogongneng/evaluation.png',
                     cardSummary: '帮助您评估哪些岗位适合不同类型的残疾人，便于招募及岗位安排。',
                     cardUsers: 278
                 },
                 {
                     cardType: '育',
-                    cardTitle: '常用手语宝典',
+                    cardTitle: '糖蔗',
                     cardIcon: 'http://10.134.149.222:9000/duogongneng/knowledgeCollection.png',
                     cardSummary: '带你走进无声的世界，帮助您了解工广常用手语、日常生活常用子语菱这通技巧等知识。',
                     cardUsers: 12
