@@ -66,7 +66,7 @@ export default {
                     router: '/admin/user'
                 },
                 {
-                    id: "13",
+                    id: "2",
                     icon: 'el-icon-user',
                     name: '个人中心',
                     router: '/admin/center'
@@ -74,13 +74,19 @@ export default {
             ],
             menusTwo: [
                 {
-                    id: "2",
+                    id: "3",
                     icon: 'el-icon-s-grid',
                     name: '发布新闻',
                     router: '/admin/new'
                 },
             ],
             menusThree: [
+                {
+                    id: "4",
+                    icon: 'el-icon-question',
+                    name: '问答中心',
+                    router: '/admin/question'
+                },
                 {
                     id: "5",
                     icon: 'el-icon-s-comment',
@@ -92,25 +98,31 @@ export default {
                 {
                     id: "6",
                     icon: 'el-icon-share',
-                    name: '资源列表',
+                    name: '甘蔗列表',
+                    router: '/admin/resourList'
+                },
+                {
+                    id: "7",
+                    icon: 'el-icon-share',
+                    name: '甘蔗列表',
                     router: '/admin/resourList'
                 }
             ],
             menusFive: [
                 {
-                    id: "7",
+                    id: "8",
                     icon: 'el-icon-user',
                     name: '用户统计',
                     router: ''
                 },
                 {
-                    id: "8",
+                    id: "9",
                     icon: 'el-icon-s-data',
                     name: '活动统计',
                     router: ''
                 },
                 {
-                    id: "9",
+                    id: "10",
                     icon: 'el-icon-menu',
                     name: '资源使用情况',
                     router: ''
@@ -123,14 +135,8 @@ export default {
                 //     name: '内容管理',
                 //     router: ''
                 // },
-                // {
-                //     id: "11",
-                //     icon: 'el-icon-menu',
-                //     name: '界面管理',
-                //     router: ''
-                // },
                 {
-                    id: "12",
+                    id: "11",
                     icon: 'el-icon-s-help',
                     name: '首页',
                     router: '/dashboard'

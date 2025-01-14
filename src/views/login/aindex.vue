@@ -3,7 +3,7 @@
         <div class="logo">
             <div style="display: flex;justify-content: center;align-items: center;">
                 <img src="../../assets/icon/favicon.png" style="width: 64px; height: 64px;">
-                <span style="color: #fff;font-size: 24px;font-weight: 500;">多元融合功能平台</span>
+                <span style="color: #fff;font-size: 24px;font-weight: 500;">甘蔗农情专家数据库</span>
             </div>
         </div>
         <div class="homeBtn" @click="goHome">
@@ -73,6 +73,7 @@ export default {
             }
             this.loading = true
             removeToken()
+            this.loginForm.route = 'alogin'
             try {
                 // 等待 login 操作完成
                 await this.$store.dispatch('user/login', this.loginForm)

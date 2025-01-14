@@ -97,17 +97,22 @@ export const constantRoutes = [
             {
                 path: '/admin/view',
                 component: () => import( '@/views/admin/contact/view.vue'),
-                title: '新闻列表',
+                title: '查看消息',
             },
             {
                 path: '/admin/contact',
                 component: () => import( '@/views/admin/contact/center.vue'),
-                title: '新闻列表',
+                title: '消息列表',
+            },
+            {
+                path: '/admin/question',
+                component: () => import( '@/views/admin/contact/question.vue'),
+                title: '问答中心',
             },
             {
                 path: '/admin/resourList',
                 component: () => import( '@/views/admin/resour/resourList.vue'),
-                title: '新闻列表',
+                title: '甘蔗列表',
             },
         ]
     },

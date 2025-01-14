@@ -9,7 +9,7 @@
             <span class="link-3" >团队介绍 </span>
             <span class="link-3" >项目背景</span>
             <span class="link-3" >基地数据</span>
-            <span class="link-3" @click="contractUs" >联系我们</span>
+            <span class="link-3" @click="contractUs()" >联系我们</span>
         </div>
 
         <div v-if="!nickname" class="login">
@@ -40,8 +40,8 @@ export default {
   },
   methods: {
     goResours(type) {
-        const currentPath = this.$route.path;
-        const currentQuery = this.$route.query;
+        const currentPath = this.$route.path
+        const currentQuery = this.$route.query
 
         // 检查当前路径是否为 '/resours' 且查询参数 'ftype' 是否为目标值
         if (currentPath === '/resours' && currentQuery.ftype === type) {

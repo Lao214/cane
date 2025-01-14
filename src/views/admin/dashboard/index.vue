@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- <button @click="getInfo()">getInfo</button> -->
+       ”欢迎回来“
     </div>
 </template>
 

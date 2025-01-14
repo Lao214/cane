@@ -72,13 +72,18 @@ export default {
             }
             removeToken()
             this.loading = true
+            this.loginForm.route = 'login'
             try {
                 // 等待 login 操作完成
                 await this.$store.dispatch('user/login', this.loginForm)
                 // 等待 getInfo 操作完成
                 await this.$store.dispatch('user/getInfo')
-                // 跳转到 /dashboard
-                this.$router.push({ path: '/home' })
+                // 跳转到 /home
+                if(!this.$route.query.redirect) {
+                    this.$router.push({ path: '/home' })
+                } else {
+                    this.$router.push({ path: '/' + this.$route.query.redirect, query: this.$route.query })
+                }
             } catch (error) {
                 // 处理错误
                 console.error(error);
