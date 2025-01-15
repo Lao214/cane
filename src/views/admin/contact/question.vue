@@ -13,7 +13,7 @@ export default {
 <style scoped>
 .mes-body {
     background: white;
-    width: 97%;
+    width: 95%;
     height: 87vh;
     padding: 20px;
 }

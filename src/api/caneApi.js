@@ -44,5 +44,12 @@ export default {
             url: `${api_name}/delCane/${id}`,
             method: 'delete'
         })
+    },
+    getOptions() {
+        return request({
+            // 接口路径
+            url: `${api_name}/getOptions`,
+            method: 'get'
+        })
     }
 }

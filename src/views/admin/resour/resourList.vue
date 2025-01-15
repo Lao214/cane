@@ -10,7 +10,7 @@
                     </el-col>
                     <el-col :span="12">
                         <el-form-item label="资源名称">
-                            <el-input v-model="searchObj.caneName" style="width: 95%" placeholder="资源名称" />
+                            <el-input v-model="searchObj.keyword" style="width: 95%" placeholder="资源名称" />
                         </el-form-item>
                     </el-col>
                     <el-col :span="6">
@@ -55,7 +55,7 @@
                 @current-change="fetchData" />
         </div>
 
-        <el-dialog :title="dialogtitle" :visible.sync="dialogVisible" width="87%">
+        <el-dialog :title="dialogtitle" :visible.sync="dialogVisible" :close-on-click-modal="false" width="87%">
             <el-form label-width="100px" size="small">
                 <el-row>
                     <el-col :span="8">
@@ -78,12 +78,16 @@
                 <el-row>
                     <el-col :span="8">
                         <el-form-item label="亲本信息父" style="">
-                            <el-input v-model="caneObj.parentId" style="width: 90%" placeholder="请输入亲本信息父" />
+                            <el-select v-model="caneObj.parentId" style="width: 90%" filterable placeholder="请选择">
+                                <el-option  v-for="item in parentOptions" :key="item.value"  :label="item.label" :value="item.value"> </el-option>
+                            </el-select>
                         </el-form-item>
                     </el-col>
                     <el-col :span="8">
                         <el-form-item label="亲本信息母" style="">
-                            <el-input v-model="caneObj.motherId" style="width: 90%" placeholder="请输入亲本信息母" />
+                            <el-select v-model="caneObj.motherId" style="width: 90%" filterable placeholder="请选择">
+                                <el-option  v-for="item in parentOptions" :key="item.value"  :label="item.label" :value="item.value"> </el-option>
+                            </el-select>
                         </el-form-item>
                     </el-col>
                     <el-col :span="8">
@@ -167,6 +171,22 @@
 
                 <el-row>
                     <el-col :span="24">
+                        <el-form-item label="描述信息" style="">
+                            <el-input v-model="caneObj.description"  type="textarea" :autosize="{ minRows: 2, maxRows: 6 }" maxlength="1000"  show-word-limit style="width: 97%" placeholder="请输入描述信息" />
+                        </el-form-item>
+                    </el-col>
+                </el-row>
+
+                <el-row>
+                    <el-col :span="24">
+                        <el-form-item label="品种特性" style="">
+                            <el-input v-model="caneObj.variFeatures"  type="textarea" :autosize="{ minRows: 2, maxRows: 6 }" maxlength="1000"  show-word-limit style="width: 97%" placeholder="请输入品种特性" />
+                        </el-form-item>
+                    </el-col>
+                </el-row>
+
+                <el-row>
+                    <el-col :span="24">
                         <el-form-item label="推荐种植区域和季节" style="">
                             <el-input v-model="caneObj.recommendedPlanting"  type="textarea" :autosize="{ minRows: 2, maxRows: 6 }" maxlength="1000"  show-word-limit style="width: 97%" placeholder="请输入选育单位" />
                         </el-form-item>
@@ -219,19 +239,29 @@ export default {
             page: 1, // 默认页码
             limit: 10, // 每页记录数
             searchObj: {
-                caneName: '',
+                keyword: '',
                 categoryId: ''
             }, // 查询表单对象
             dialogVisible: false,
             dialogtitle: '',
             caneObj: '',
+            parentOptions: []
         }
     },
     mounted() {
         this.getCategoryOptions()
         this.fetchData()
+        this.getOptions()
     },
     methods: {
+        getOptions() {
+            caneApi.getOptions().then(res => {
+                if (res.code === 200) {
+                    this.parentOptions = res.data.data
+                    this.parentOptions.unshift({ value: 0, label: '无亲本' })
+                }
+            })
+        },
         getCategoryOptions() {
             categoryApi.getCategoryTree({}).then(res => {
                 console.log(res)
@@ -291,55 +321,51 @@ export default {
             this.dialogVisible = true
             this.caneObj = {}
             caneApi.getCaneById(id).then(res => {
-    if (res.code === 200) {
-        this.caneObj = res.data.data;
-        this.caneObj.categoryChose = [];
+                if (res.code === 200) {
+                    this.caneObj = res.data.data;
+                    this.caneObj.categoryChose = [];
 
-        // 检查 categoryOptions 是否为数组
-        if (!Array.isArray(this.categoryOptions) || this.categoryOptions.length === 0) {
-            console.error("categoryOptions 未初始化或为空:", this.categoryOptions);
-            return;
-        }
+                    // 检查 categoryOptions 是否为数组
+                    if (!Array.isArray(this.categoryOptions) || this.categoryOptions.length === 0) {
+                        console.error("categoryOptions 未初始化或为空:", this.categoryOptions);
+                        return;
+                    }
 
-        // 检查 categoryId 是否存在
-        if (!this.caneObj.categoryId) {
-            console.error("categoryId 未定义:", this.caneObj.categoryId);
-            return;
-        }
+                    // 检查 categoryId 是否存在
+                    if (!this.caneObj.categoryId) {
+                        console.error("categoryId 未定义:", this.caneObj.categoryId);
+                        return;
+                    }
 
-        // 递归查找函数
-        const findCategory = (categories, targetValue, path = []) => {
-            for (const category of categories) {
-                if (!category) continue; // 避免 category 为空
-                const newPath = [...path, category.value]; // 路径记录 value
+                    // 递归查找函数
+                    const findCategory = (categories, targetValue, path = []) => {
+                        for (const category of categories) {
+                            if (!category) continue; // 避免 category 为空
+                            const newPath = [...path, category.value]; // 路径记录 value
 
-                console.log("category.value", category.value);
-                if (parseInt(category.value) === targetValue) {
-                    // 找到目标值
-                    this.caneObj.categoryChose = newPath;
-                    console.log("找到匹配项，路径为:", newPath);
-                    return true;
+                            if (parseInt(category.value) === targetValue) {
+                                // 找到目标值
+                                this.caneObj.categoryChose = newPath;
+                                console.log("找到匹配项，路径为:", newPath);
+                                return true;
+                            }
+
+                            // 如果存在 children，继续递归
+                            if (Array.isArray(category.children) && category.children.length > 0) {
+                                const found = findCategory(category.children, targetValue, newPath);
+                                if (found) return true; // 找到后停止递归
+                            }
+                        }
+                        return false;
+                    };
+
+                    const found = findCategory(this.categoryOptions, this.caneObj.categoryId);
+
+                    if (!found) {
+                        console.warn("未找到匹配的 categoryId:", this.caneObj.categoryId);
+                    }
                 }
-
-                // 如果存在 children，继续递归
-                if (Array.isArray(category.children) && category.children.length > 0) {
-                    const found = findCategory(category.children, targetValue, newPath);
-                    if (found) return true; // 找到后停止递归
-                }
-            }
-            return false;
-        };
-
-        const found = findCategory(this.categoryOptions, this.caneObj.categoryId);
-
-        if (!found) {
-            console.warn("未找到匹配的 categoryId:", this.caneObj.categoryId);
-        }
-    }
-});
-
-
-
+            })
         },
         removeDataById(id) {
             this.$confirm('此操作将永久删除该记录, 是否继续?', '提示', {

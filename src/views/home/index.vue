@@ -17,18 +17,20 @@
         </div>
         <!-- 热门推荐 -->
         <h1 style="margin-top: 70px;">热门推荐</h1>
+
         <div class="popular">
             <div v-for="(item,index) in cardList" :key="index" class="popular-card">
                 <img :src="item.cardIcon" style="width: 36px;height: 36px;margin-top: 20px;" alt="">
-                <h3 class="title-text" style="margin-top: 10px;">{{ item.cardTitle }}</h3>
+                <h3 class="title-text" style="margin-top: 10px;">{{ item.caneName }}</h3>
                 <div style="height: 60px;">
-                    <p class="card-summary-text">{{ item.cardSummary }}</p>
+                    <p class="card-summary-text">{{ item.description }}</p>
                 </div>
                 <button class="btn2" @click="viewResour(item)">查看详情</button>
-                <span style="background-color: #39bda7;position: absolute;right: 11px;top: 7px;height: 25px;width: 25px;color: aliceblue;">{{ item.cardType }}</span>
-                <span style="position: absolute;left: 7px;bottom: 4px;color: aliceblue;color: #262626;font-size: 14px;">已阅读 {{ item.cardUsers }} 人次</span>
+                <span style="background-color: #39bda7;position: absolute;right: 11px;top: 7px;height: 25px;min-width: 4rem;width: auto;color: aliceblue;padding: .1rem;">{{ item.categoryName }}</span>
+                <span style="position: absolute;left: 7px;bottom: 4px;color: aliceblue;color: #262626;font-size: 14px;">已被阅读 {{ item.viewCount }} 次</span>
             </div>
         </div>
+
         <button class="btn2" style="width: 30%;min-width: 457px;margin-top: 47px;border: 1px solid;" @click="goMoreResour">查看更多 ></button>
         <!-- 新闻模块 -->
         <div style="margin-top: 97px;margin-bottom: 40px;display: flex;width: 100%;justify-content: space-between;">
@@ -63,57 +65,82 @@
                 </div>
             </div>
         </div>
-        <div class="zhuanjia">
+        <div class="zhuanjia" @click="showQa">
             <img src="../../assets/icon/QandA1.png" style="width: 3.2rem;height: 3.2rem;" alt="">
             <p style="margin: 0;font-weight: 500;color: #ffffff;font-size: 1.2rem;">专家答疑</p>
         </div>
+
+        <el-dialog title="提示"  :visible.sync="dialogVisible" width="70%" :close-on-click-modal="false" >
+            <el-form label-width="100px" size="small">
+                <el-row>
+                    <el-col :span="24">
+                        <el-form-item label="标题" style="">
+                            <el-input v-model="qaObj.questionTitle"  maxlength="100"  show-word-limit style="width: 97%" placeholder="请输入描述信息" />
+                        </el-form-item>
+                    </el-col>
+                </el-row>
+
+                <el-row>
+                    <el-col :span="24">
+                        <el-form-item label="补充" style="">
+                            <el-input v-model="qaObj.questionDesc"  type="textarea" :autosize="{ minRows: 3, maxRows: 8 }" maxlength="1000"  show-word-limit style="width: 97%" placeholder="请输入描述信息" />
+                        </el-form-item>
+                    </el-col>
+                </el-row>
+
+            </el-form>
+            <span slot="footer" class="dialog-footer">
+                <el-button @click="dialogVisible = false">取 消</el-button>
+                <el-button type="success" @click="addQa()">提 问</el-button>
+                <el-button type="success" @click="goQa()">去问答专区</el-button>
+            </span>
+        </el-dialog>
+        
     </div>
 </template>
 
 <script>
 import newApi from '@/api/newApi'
+import caneApi from '@/api/caneApi'
+import caneQaApi from '@/api/caneQa';
 
 export default {
     data() {
         return {
             keyword: '',
-            cardList: [
-                {
-                    cardType: '选',
-                    cardTitle: '果蔗',
-                    cardIcon: require('@/assets/icon/甘蔗.png'),
-                    cardSummary: '帮助您评估哪些岗位适合不同类型的残疾人，便于招募及岗位安排。',
-                    cardUsers: 278
-                },
-                {
-                    cardType: '育',
-                    cardTitle: '糖蔗',
-                    cardIcon: require('@/assets/icon/甘蔗2.png'),
-                    cardSummary: '带你走进无声的世界，帮助您了解工广常用手语、日常生活常用子语菱这通技巧等知识。',
-                    cardUsers: 12
-                },
-                {
-                    cardType: '育',
-                    cardTitle: '面性甘蔗',
-                    cardIcon: require('@/assets/icon/面性甘蔗.png'),
-                    cardSummary: '帮助您如何开展残疾人教育培训，培训技巧、培训方式。',
-                    cardUsers: 388
-                },
-                {
-                    cardType: '育',
-                    cardTitle: '野生种',
-                    cardIcon: require('@/assets/icon/ganzhe.png'),
-                    cardSummary: '帮助您如何进行无障碍设计，含工作场所及生活场所。',
-                    cardUsers: 324
-                }
-            ],
-            news:[]
+            total: 0, // 数据库中的总记录数
+            page: 1, // 默认页码
+            limit: 4, // 每页记录数
+            cardList: [],
+            news:[],
+            dialogVisible: false,
+            qaObj: {}
         }
     },
     created() {
         this.getHomeNews()
+        this.fetchData()
     },
     methods: {
+        showQa() {
+            this.qaObj = {}
+            this.dialogVisible = true
+        },
+        addQa() {
+            caneQaApi.addCaneQa(this.qaObj).then(res => {
+                if(res.code === 200) {
+                    this.$message({
+                        type: 'success',
+                        message: '提问成功'
+                    })
+                    this.dialogVisible = false
+                    this.goQa()
+                }
+            })
+        },
+        goQa() {
+            this.$router.push('/qa')
+        },
         search() {
             this.$router.push({
                 path: '/resours',
@@ -149,7 +176,31 @@ export default {
                     }
                 }
             )
-        }
+        },
+        fetchData(page = 1) {
+            this.page = page
+            var searchObj = {
+                 sortType: 'nums'
+            }
+            caneApi.getPageList(this.page, this.limit, searchObj).then(response => {
+                if(response.code === 200) {
+                    this.cardList = response.data.data.records
+                    // 图标数组
+                    const icons = [
+                        require('@/assets/icon/甘蔗.png'),
+                        require('@/assets/icon/甘蔗2.png'),
+                        require('@/assets/icon/面性甘蔗.png'),
+                        require('@/assets/icon/ganzhe.png')
+                    ]
+                    // 使用循环为每个元素分配一个图标
+                    this.cardList.forEach((element, index) => {
+                        // 根据当前元素的索引对图标数组长度取模，实现轮流分配
+                        element.cardIcon = icons[index % icons.length]
+                    })
+                    this.total = response.data.data.total
+                }
+            })
+        },
     }
 }
 </script>
