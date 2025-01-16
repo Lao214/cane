@@ -1,7 +1,7 @@
 <template>
     <div class="body">
         <h1 style="text-align: center;">问答专区</h1>
-        <div>
+        <div style="min-height: 70vh;">
             <div v-for="(item,index) in dataList" :key="index" class="ques-card">
                 <div class="card-row-1">
                     <span class="card-row-1-title">{{ item.questionTitle }}</span>
@@ -13,34 +13,26 @@
                     <div class="card-row-2-des" v-html="item.questionDesc"></div>
                 </div>
                 <div class="card-row-2" style="margin-bottom: 1rem;">
-                    <span> <img :src="item.askAvatar" alt=""> {{ item.askNickname }}</span>
-                    <span>2023-06-06 22:33:41</span>
+                    <div style="display: flex;align-items: center;"> <img :src="item.askAvatar" style="width: 1.7rem;margin-right: .2rem;border-radius: 50%;" alt=""> {{ item.askNickname }}</div>
+                    <span>{{ item.askTime }}</span>
                 </div>
-                <div class="card-row-3">
+                <div v-if="item.isAnswered === '是'" class="card-row-3">
                     <div class="card-row-2-ans">
-                        <p style="margin: 0;margin-top: .2rem;  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
-                            A:
-                            根据您的描述，您的甘蔗在池塘边缘种植时，可能存在一些问题。以下是一些建议：
-                            1. 确保在池塘边缘种植的 subgraphs 满足以下条件：
-                                -  substrate 满足.
-                                -  substrate 满足.
-                                -  substrate 满足.
-                            2. 确保 subgraphs 满足以下条件
-                                -  substrate 满足.
-                                - substrate 满足.
-                        </p>
-                        <p style="margin: 0;margin-top: .8rem; text-align: end;">
-                            by xx  2023-06-06 22:33:41
-                        </p>
+                        <div style="margin: 0;margin-top: .2rem;  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;" v-html="item.questionAnswer"></div>
+                        <div style="margin: 0;margin-top: .8rem; text-align: end;">
+                            <div style="display: flex;align-items: center;"> <img :src="item.answerAvatar" style="width: 1.7rem;margin-right: .2rem;border-radius: 50%;" alt=""> {{ item.answerNickname }} <span style="margin-left: .4rem;">{{ item.answerTime }}</span> </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <el-pagination background layout="prev, pager, next" :total="total" style="margin-bottom: 34px;"></el-pagination>
+
 
         <div class="zhuanjia" @click="showQa">
-            <img src="../../assets/icon/QandA1.png" style="width: 3.2rem;height: 3.2rem;" alt="">
-            <p style="margin: 0;font-weight: 500;color: #ffffff;font-size: 1.2rem;">专家答疑</p>
+            <img src="../../assets/icon/QandA1.png" style="width: 2.8rem;height: 2.8rem;" alt="">
+            <p style="margin: 0;font-weight: 500;color: #ffffff;font-size: 1.2rem;">我要提问</p>
         </div>
 
         <el-dialog title="提示"  :visible.sync="dialogVisible" width="70%" :close-on-click-modal="false" >
@@ -104,6 +96,7 @@ export default {
                         message: '提问成功'
                     })
                     this.dialogVisible = false
+                    this.fetchData()
                 }
             })
         },

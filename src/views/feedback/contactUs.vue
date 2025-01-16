@@ -3,7 +3,7 @@
         <p style="position: absolute;top: 65px;left: 19px;"> <a class="homeback" @click="goHome">首页</a> > <a>联系我们</a></p>
         <h1>CONTACT US</h1>
         <div style="width: 30%;min-width: 447px;margin: 0 auto;">
-            <input class="contact-input" placeholder="您的联系方式(分机或邮箱)" v-model="contactForm.contactWay">
+            <input class="contact-input" placeholder="您的联系方式(电话或邮箱)" v-model="contactForm.contactWay">
             <textarea class="contact-area" style="resize: none;margin-top: 30px;min-height: 270px;" placeholder="请输入您想对我们说的话（不超过200字）" v-model="contactForm.contactText"></textarea>
             <button class="btn2" style="width: 100%;min-width: 483px;margin-top: 27px;border: 1px solid;" @click="addContact"><i class="el-icon-s-promotion"></i> 发送</button>    
         </div>
@@ -11,9 +11,9 @@
             <el-divider></el-divider>
             <div style="text-align: left;margin-left: 15vw;">
                 <p>其他联系方式</p>
-                <h5>分机：</h5>
-                <h5>邮箱：</h5>
-                <h5>地址：</h5>
+                <h5>电话：1946546639</h5>
+                <h5>邮箱：yunhao@qq.com</h5>
+                <h5>地址：广西大学农学院</h5>
             </div>
         </div>
     </div>

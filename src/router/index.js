@@ -59,6 +59,16 @@ export const constantRoutes = [
                 path: '/qa',
                 component: () => import('@/views/resour/qa'),
                 hidden: true
+            },
+            {
+                path: '/team',
+                component: () => import('@/views/home/team'),
+                hidden: true
+            },
+            {
+                path: '/background',
+                component: () => import('@/views/home/background'),
+                hidden: true
             }
         ]
     },

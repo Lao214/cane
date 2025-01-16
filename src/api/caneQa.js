@@ -13,6 +13,15 @@ export default {
             data: dataForm
         })
     },
+    updateCaneQa(dataForm) {
+        return request({
+            // 接口路径
+            url: `${api_name}/updateCaneQa`,
+            method: 'post',      
+            // 参数
+            data: dataForm
+        })
+    },
     getPageList(page, limit, searchObj) {
         return request({
             // 接口路径
@@ -22,4 +31,12 @@ export default {
             params: searchObj
         })
     },
+    getCaneQaById(id) {
+        return request({
+            // 接口路径
+            url: `${api_name}/getCaneQaById/${id}`,
+            method: 'get',      
+            // 参数
+        })
+    }
 }

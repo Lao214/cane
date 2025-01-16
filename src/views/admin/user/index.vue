@@ -14,13 +14,13 @@
                         </el-form-item>
                     </el-col>
                     <el-col :span="6">
-                        <el-form-item label="厂区">
-                        <el-input v-model="searchObj.factory" style="width: 95%" placeholder="厂区" />
+                        <el-form-item label="区域">
+                        <el-input v-model="searchObj.factory" style="width: 95%" placeholder="区域" />
                         </el-form-item>
                     </el-col>
                     <el-col :span="6">
-                        <el-form-item label="事业群">
-                        <el-input v-model="searchObj.unit" style="width: 100%" placeholder="事业群" />
+                        <el-form-item label="单位">
+                        <el-input v-model="searchObj.unit" style="width: 100%" placeholder="单位" />
                         </el-form-item>
                     </el-col>
                     </el-row>
@@ -37,9 +37,9 @@
                 </el-table-column>
                 <el-table-column prop="nickname" label="姓名" width="180">
                 </el-table-column>
-                <el-table-column prop="factory" label="厂区">
+                <el-table-column prop="factory" label="区域">
                 </el-table-column>
-                <el-table-column prop="unit" label="事业群">
+                <el-table-column prop="unit" label="单位">
                 </el-table-column>
                 <el-table-column prop="createTime" label="创建时间">
                 </el-table-column>
@@ -67,12 +67,12 @@
                 <el-form-item v-if="!sysUser.id" label="密码" prop="password">
                     <el-input v-model="sysUser.password" />
                 </el-form-item>
-                <el-form-item label="厂区" prop="factory">
+                <el-form-item label="区域" prop="factory">
                     <el-select v-model="sysUser.factory" placeholder="请选择" style="width: 100%;">
                         <el-option v-for="item in factorys" :key="item.value" :label="item.label" :value="item.value"></el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="事业群" prop="unit">
+                <el-form-item label="单位" prop="unit">
                     <el-select v-model="sysUser.unit" placeholder="请选择" style="width: 100%;">
                     <el-option v-for="item in units" :key="item.value" :label="item.label" :value="item.value">
                     </el-option>
@@ -133,14 +133,58 @@ export default {
             loadingAssign: false,
             factorys: [
                 {
-                    label: '龙华',
-                    value: '龙华'
+                    label: '广西壮族自治区',
+                    value: '广西壮族自治区'
+                },
+                {
+                    label: '广东省',
+                    value: '广东省'
+                },
+                {
+                    label: '湖南省',
+                    value: '湖南省'
+                },
+                {
+                    label: '云南省',
+                    value: '云南省'
+                },
+                {
+                    label: '四川省',
+                    value: '四川省'
                 }
             ],
             units: [
                 {
-                    label: '中央单位',
-                    value: '中央单位'
+                    label: '广西大学',
+                    value: '广西大学'
+                },
+                {
+                    label: '北部湾大学',
+                    value: '北部湾大学'
+                },
+                {
+                    label: '广西民族大学',
+                    value: '广西民族大学'
+                },
+                {
+                    label: '湖南大学',
+                    value: '湖南大学'
+                },
+                {
+                    label: '湖南师范大学',
+                    value: '湖南师范大学'
+                },
+                {
+                    label: '湘潭大学',
+                    value: '湘潭大学'
+                },
+                {
+                    label: '贵州大学',
+                    value: '贵州大学'
+                },
+                {
+                    label: '华南农业大学',
+                    value: '华南农业大学'
                 }
             ],
             dialogRoleVisible: false,
