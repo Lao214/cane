@@ -3,7 +3,7 @@
         <p style="position: absolute;top: 65px;left: 19px;"> <a class="homeback" @click="goHome">首页</a> > <a class="homeback" @click="goResours">查看更多</a> > {{ toolTitle }}</p>
         <!-- 搜索框 -->
         <div class="input-container">
-            <input v-model="searchObj.keyword" placeholder="用搜索更简单" type="text" class="input">
+            <input v-model="keyword" placeholder="用搜索更简单" type="text" class="input">
             <span @click="search">立刻搜索</span>
         </div>
 
@@ -14,7 +14,7 @@
 
         </div>
         <div style="display: flex;justify-content: space-between;">
-            <div class="downFile">
+            <!-- <div class="downFile">
                 <i class="el-icon-download"></i>
                 文件版
             </div>
@@ -31,41 +31,159 @@
                     <svg t="1720601631144" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="34924" width="16" height="16"><path d="M850.879104 96.41591l-676.303067 0c-60.681034 0-110.049418 49.367361-110.049418 110.049418l0 446.200388c0 60.681034 49.367361 110.049418 110.049418 110.049418l90.307795 0L396.936381 931.129846c3.793396 4.838192 9.598612 7.66354 15.746636 7.66354s11.952216-2.825348 15.746636-7.66354l132.052548-168.414711 290.396903 0c60.681034 0 110.049418-49.367361 110.049418-110.049418L960.928522 206.465329C960.928522 145.784294 911.561162 96.41591 850.879104 96.41591zM920.91111 652.665717c0 38.614459-31.416524 70.030983-70.030983 70.030983L550.744419 722.6967c-6.147 0-11.952216 2.825348-15.745612 7.66354L412.683017 886.356107l-122.31579-155.995867c-3.792373-4.838192-9.597589-7.66354-15.745612-7.66354l-100.045577 0c-38.614459 0-70.030983-31.416524-70.030983-70.030983L104.545054 206.465329c0-38.614459 31.416524-70.030983 70.030983-70.030983l676.303067 0c38.614459 0 70.030983 31.416524 70.030983 70.030983L920.910087 652.665717zM272.621051 344.526731c-44.132126 0-80.035848 35.903721-80.035848 80.035848 0 44.132126 35.903721 80.036871 80.035848 80.036871s80.035848-35.904745 80.035848-80.036871C352.655875 380.430452 316.752154 344.526731 272.621051 344.526731zM272.621051 464.582037c-22.065552 0-40.017412-17.951861-40.017412-40.018436 0-22.065552 17.952884-40.017412 40.017412-40.017412 22.065552 0 40.017412 17.951861 40.017412 40.017412C312.638463 446.629153 294.686602 464.582037 272.621051 464.582037zM512.727571 344.526731c-44.132126 0-80.035848 35.903721-80.035848 80.035848 0 44.132126 35.903721 80.036871 80.035848 80.036871 44.132126 0 80.035848-35.904745 80.035848-80.036871C592.763418 380.430452 556.859697 344.526731 512.727571 344.526731zM512.727571 464.582037c-22.065552 0-40.017412-17.951861-40.017412-40.018436 0-22.065552 17.951861-40.017412 40.017412-40.017412 22.065552 0 40.017412 17.951861 40.017412 40.017412C552.746006 446.629153 534.793122 464.582037 512.727571 464.582037zM752.836137 344.526731c-44.131103 0-80.035848 35.903721-80.035848 80.035848 0 44.132126 35.904745 80.036871 80.035848 80.036871s80.035848-35.904745 80.035848-80.036871C832.871985 380.430452 796.96724 344.526731 752.836137 344.526731zM752.836137 464.582037c-22.066575 0-40.017412-17.951861-40.017412-40.018436 0-22.065552 17.951861-40.017412 40.017412-40.017412s40.017412 17.951861 40.017412 40.017412C792.853549 446.629153 774.902712 464.582037 752.836137 464.582037z" fill="grey" p-id="34925"></path></svg>
                     <span style="font-size: 16px;margin-left: 4px;"> 评论 </span>
                 </span>
-            </div>
+            </div> -->
             <!-- <span>{{ publicTime }}</span> -->
         </div>
         <div class="toolbody">
             <div class="toolbod-left">
-                <img src="../../assets/linshi/organization-68954_1280.webp" style="width: 100%;box-shadow: 1px 2px 3px 2px #00000040" alt="">
-                <p>为残疾人评估及开发更多肉位，带动其就业，促进企业多元融合。肉位适应性评估工具有网页版和交件版。可以通过网页版进行在线评估并呈现评估结果，也可以下载文件版进行线下评估作业。</p>
+                <div class="base-info">
+                    <h2>基本信息</h2>
+                    <div style="display: flex;width: 100%;justify-content: space-between;flex-wrap: wrap;">
+                        <div class="info-item">
+                            <span class="info-label">甘蔗名称</span> 
+                            <span>{{ caneObj.caneName }}</span> 
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">甘蔗别名</span> 
+                            <span>{{ caneObj.caneAlias }}</span> 
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">属名</span> 
+                            <span>{{ caneObj.genericname }}</span> 
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">分类</span> 
+                            <span>{{ caneObj.categoryName }}</span> 
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">亲本信息父</span> 
+                            <span>{{ caneObj.fatherName }}</span> 
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">亲本信息母</span> 
+                            <span>{{ caneObj.motherName }}</span> 
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">熟期</span> 
+                            <span>{{ caneObj.ripePeriod }}</span> 
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">株高</span> 
+                            <span>{{ caneObj.plantHeight }}</span> 
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">茎径</span> 
+                            <span>{{ caneObj.stemDiamet }}</span> 
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">主要种植地区编码</span> 
+                            <span>{{ caneObj.cityCodes }}</span> 
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">引入时间</span> 
+                            <span>{{ caneObj.intorDates }}</span> 
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">引入单位</span> 
+                            <span>{{ caneObj.intorBusiness }}</span> 
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">选育单位</span> 
+                            <span>{{ caneObj.breedUnits }}</span> 
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">选育年代</span> 
+                            <span>{{ caneObj.breedYear }}</span> 
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">审定编号</span> 
+                            <span>{{ caneObj.apprcode }}</span> 
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">抗黑穗病</span> 
+                            <span>{{ caneObj.smutResistance }}</span> 
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">抗旱属性</span> 
+                            <span>{{ caneObj.droughtResistance }}</span> 
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">抗寒属性</span> 
+                            <span>{{ caneObj.coldResistance }}</span> 
+                        </div>
+
+                    </div>
+
+                    <div class="info-text">
+                        <el-divider content-position="left"><span style="font-size: 1.4rem;">描述信息</span></el-divider>
+                        <div class="info-content">
+                            {{ caneObj.description }}
+                        </div>
+                    </div>
+                    <div class="info-text">
+                        <el-divider content-position="left"><span style="font-size: 1.4rem;">品种特性</span></el-divider>
+                        <div class="info-content">
+                            {{ caneObj.variFeatures }}
+                        </div>
+                    </div>
+                    <div class="info-text">
+                        <el-divider content-position="left"><span style="font-size: 1.4rem;">推荐种植区域和季节</span></el-divider>
+                        <div class="info-content">
+                            {{ caneObj.recommendedPlanting }}
+                        </div>
+                    </div>
+                    <div class="info-text">
+                        <el-divider content-position="left"><span style="font-size: 1.4rem;">专家建议</span></el-divider>
+                        <div class="info-content">
+                            {{ caneObj.expertAdvice }}
+                        </div>
+                    </div>
+                    <div class="info-text">
+                        <el-divider content-position="left"><span style="font-size: 1.4rem;">参考文献</span></el-divider>
+                        <div class="info-content">
+                            {{ caneObj.reference }}
+                        </div>
+                    </div>
+
+                </div>
             </div>
             <div class="toolbod-right">
-                <h2 style="text-align: center;">岗位适应性评估使用说明</h2>
-                <p>
-                    岗位适应性评估分网页版和文档版防个版本，请捩据实际信况选择。该工具主要应用于评估现有岗位或考新岗位适合哪类残疾人，
-                    从身体百、作业形态、技术面、特殊需求、辅助设施需求和管理体系6个枸西进行评估。这套工具可以帮助您：
-                    1.让生产单位了解哪些岗位适合哪类残疾人,方便招募及岗位的安排及管理
-                    2.了解现有工作岗位捕助设施的缺失及有明确的改进方向
-                    3.帮助你识别岗位的风险
-                </p>
+                
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import caneApi from '@/api/caneApi';
+
 export default {
     data() {
         return {
-            searchObj: {
-                keyword: ''
-            },
-            toolTitle: this.$route.query.tolname
+            keyword: '',
+            toolTitle: this.$route.query.tolname,
+            caneObj: {}
         }
+    },
+    mounted() {
+        this.getCane()
     },
     methods: {
         search() {
-
+            this.$router.push({
+                path: '/resours',
+                query: {
+                    skword: this.keyword
+                }
+            })
         },
         goHome() {
             this.$router.push('/home')
@@ -73,6 +191,13 @@ export default {
         goResours() {
             this.$router.push('/resours')
         },
+        getCane() {
+            caneApi.getCaneByIdWithQinBen(this.$route.query.caneId).then(res => {
+                if(res.code === 200) {
+                    this.caneObj = res.data.data
+                }
+            })
+        }
     }
 }
 </script>
@@ -95,13 +220,13 @@ export default {
 .toolbod-left {
     width: 61vw;
     text-align: left;
-    border:1px solid #cecece;
+    /* border:1px solid #cecece; */
     padding: 10px;
 }
 
 .toolbod-right {
     width: 24vw;
-    border:1px solid #cecece;
+    /* border:1px solid #cecece; */
     text-align: left;
     padding: 10px;
 }
@@ -211,5 +336,27 @@ export default {
 
 .downFile:hover {
     background: #39bda7;
+}
+
+.info-label {
+    width: 28%;
+    margin-right: 5%;
+    color: #a8a8a8;
+    font-weight: 500;
+}
+
+.info-item {
+    display: flex;
+    width: 49%;
+    border-bottom: 1px #a8a8a8 dashed;
+    margin-bottom: .7rem;
+}
+
+.info-text {
+    /* margin: 1rem; */
+}
+
+.info-content {
+    min-height: 1rem;
 }
 </style>

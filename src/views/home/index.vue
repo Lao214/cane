@@ -151,7 +151,7 @@ export default {
         },
         viewResour(item) {
             console.log(item)
-            window.open(`#/resour?tolname=${item.cardTitle}`)
+            window.open(`#/resour?tolname=${item.caneName}&caneId=${item.id}`)
         },
         goMoreResour() {
             this.$router.push('/resours')

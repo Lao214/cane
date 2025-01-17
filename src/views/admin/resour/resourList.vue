@@ -158,6 +158,24 @@
 
                 <el-row>
                     <el-col :span="8">
+                        <el-form-item label="抗旱属性" style="">
+                            <el-input v-model="caneObj.droughtResistance" style="width: 90%" placeholder="请输入抗旱属性" />
+                        </el-form-item>
+                    </el-col>
+                    <el-col :span="8">
+                        <el-form-item label="抗寒属性" style="">
+                            <el-input v-model="caneObj.coldResistance" style="width: 90%" placeholder="请输入抗寒属性" />
+                        </el-form-item>
+                    </el-col>
+                    <el-col :span="8">
+                        <el-form-item label="抗黑穗病属性" style="">
+                            <el-input v-model="caneObj.smutResistance" style="width: 90%" placeholder="请输入抗黑穗病属性" />
+                        </el-form-item>
+                    </el-col>
+                </el-row>
+
+                <el-row>
+                    <el-col :span="8">
                         <el-form-item label="选育单位" style="">
                             <el-input v-model="caneObj.breedUnits" style="width: 90%" placeholder="请输入选育单位" />
                         </el-form-item>

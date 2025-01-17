@@ -118,11 +118,11 @@ export default {
 
 <style scoped>
 .body {
-  padding-top: 5rem;
-  margin-left: 5vw;
-  margin-right: 5vw;
-  background: white;
-  min-height: 87vh;
+    padding-top: 5rem;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    background: white;
+    min-height: 87vh;
 }
 
 .ques-card {

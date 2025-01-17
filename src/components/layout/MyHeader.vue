@@ -7,8 +7,8 @@
         <div class="nav">
             <span class="link-3" @click="goByHeader('/home')" >首页</span>
             <span class="link-3" @click="goByHeader('/team')" >团队介绍 </span>
-            <span class="link-3" >项目背景</span>
-            <span class="link-3" >基地数据</span>
+            <span class="link-3" @click="goByHeader('/background')" >项目背景</span>
+            <span class="link-3" @click="goByHeader('/resours')" >基地数据</span>
             <span class="link-3" @click="contractUs()" >联系我们</span>
         </div>
 

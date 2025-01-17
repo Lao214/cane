@@ -38,6 +38,15 @@ export default {
             method: 'get'
         })
     },
+
+    getCaneByIdWithQinBen(id) {
+        return request({
+            // 接口路径
+            url: `${api_name}/getCaneByIdWithQinBen/${id}`,
+            method: 'get'
+        })
+    },
+
     delCane(id) {
         return request({
             // 接口路径

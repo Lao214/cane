@@ -1,7 +1,7 @@
 <template>
  <div style="padding:20px 20vw;text-align: start;">
         <div style="box-shadow: 14px 4px 10px rgba(0, 0, 0, 0.2);padding: 40px;border-radius: 10px">
-            <p style="color: rgb(144, 144, 144);font-size: 20px">2025/01/20</p>
+            <p style="color: rgb(144, 144, 144);font-size: 20px">2025/01 /20</p>
             <p style="font-size: 40px;font-weight: 700;margin: 5px;">项目背景</p>
             <div style="height: 4px;background-color:#124708;width: 70px;"></div>
             <p style="color: #072c00;font-size: 20px">

@@ -133,7 +133,7 @@ export default {
     methods: {
         viewResour(item) {
             console.log(item)
-            window.open(`#/resour?tolname=${item.caneName}`)
+            window.open(`#/resour?tolname=${item.caneName}&caneId=${item.id}`)
         },
         search() {
             const newQuery = {
