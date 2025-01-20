@@ -156,7 +156,10 @@
                 </div>
             </div>
             <div class="toolbod-right">
-                
+                <div class="pic-box">
+                    <img v-if="caneObj.imagePath" :src="caneObj.imagePath" alt="">
+                    <img v-if="!caneObj.imagePath" src="../../assets/linshi/暂无图片.png" alt="">
+                </div>
             </div>
         </div>
     </div>
@@ -175,8 +178,19 @@ export default {
     },
     mounted() {
         this.getCane()
+        this.viewCane()
     },
     methods: {
+        viewCane() {
+            const cane = {
+                id: this.$route.query.caneId
+            }
+            caneApi.viewCane(cane).then(res => {
+                if(res.code === 200) {
+                    
+                }
+            })
+        },
         search() {
             this.$router.push({
                 path: '/resours',
@@ -357,6 +371,6 @@ export default {
 }
 
 .info-content {
-    min-height: 1rem;
+    min-height: 2rem;
 }
 </style>

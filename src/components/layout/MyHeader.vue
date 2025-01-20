@@ -21,8 +21,8 @@
                     <img :src=avatar style="width: 36px;height: 36px;border-radius: 50%;">
                     <span style="margin-left: 7px;">{{ nickname ? nickname : '无' }}</span><i class="el-icon-arrow-down el-icon--right"></i>
                 </div>
-                <el-dropdown-menu slot="dropdown">
-                    <el-dropdown-item><span @click="logout">注销</span></el-dropdown-item>
+                <el-dropdown-menu slot="dropdown" class="dropdown">
+                    <el-dropdown-item><div class="dropdown-body" @click="logout">注销</div></el-dropdown-item>
                 </el-dropdown-menu>
             </el-dropdown>
         </div>
@@ -243,5 +243,17 @@ nav {
         background: #39bda7;
         cursor: pointer;
         border:1px solid #39bda7 ;
+    }
+
+    .dropdown-body {
+        padding: .2rem .9rem;
+        width: 7rem;
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .dropdown {
+        padding: 0;
     }
 </style>

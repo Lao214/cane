@@ -31,6 +31,15 @@ export default {
             data: dataForm
         })
     },
+    viewCane(cane) {
+        return request({
+            // 接口路径
+            url: `${api_name}/viewCane`,
+            method: 'post',      
+            // 参数
+            data: cane
+        })
+    },
     getCaneById(id) {
         return request({
             // 接口路径
