@@ -22,6 +22,15 @@ export default {
             data: dataForm
         })
     },
+    addCaneBatch(dataList) {
+        return request({
+            // 接口路径
+            url: `${api_name}/addCaneBatch`,
+            method: 'post',      
+            // 参数
+            data: dataList
+        })
+    },
     updateCane(dataForm) {
         return request({
             // 接口路径

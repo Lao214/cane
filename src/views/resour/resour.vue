@@ -94,16 +94,7 @@
                         </div>
 
                         <div class="info-item">
-                            <span class="info-label">选育单位</span> 
-                            <span>{{ caneObj.breedUnits }}</span> 
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">选育年代</span> 
-                            <span>{{ caneObj.breedYear }}</span> 
-                        </div>
-
-                        <div class="info-item">
-                            <span class="info-label">审定编号</span> 
+                            <span class="info-label">编号</span> 
                             <span>{{ caneObj.apprcode }}</span> 
                         </div>
                         <div class="info-item">
@@ -144,12 +135,6 @@
                         <el-divider content-position="left"><span style="font-size: 1.4rem;">专家建议</span></el-divider>
                         <div class="info-content">
                             {{ caneObj.expertAdvice }}
-                        </div>
-                    </div>
-                    <div class="info-text">
-                        <el-divider content-position="left"><span style="font-size: 1.4rem;">参考文献</span></el-divider>
-                        <div class="info-content">
-                            {{ caneObj.reference }}
                         </div>
                     </div>
 

@@ -35,7 +35,7 @@ export default {
   props: ['avatar','nickname'],
   data() {
     return {
-      changeText: this.$router.currentRoute.path === '/login' ? '首页' : '登录'
+        changeText: this.$router.currentRoute.path === '/login' ? '首页' : '登录'
     }
   },
   methods: {

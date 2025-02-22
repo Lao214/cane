@@ -61,6 +61,11 @@ export const constantRoutes = [
                 hidden: true
             },
             {
+                path: '/chat',
+                component: () => import('@/views/resour/chat'),
+                hidden: true
+            },
+            {
                 path: '/team',
                 component: () => import('@/views/home/team'),
                 hidden: true

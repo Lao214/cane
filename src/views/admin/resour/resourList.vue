@@ -14,6 +14,7 @@
                         </el-form-item>
                     </el-col>
                     <el-col :span="6">
+                        <el-button type="success" icon="el-icon-plus" size="mini" @click="addBatch()">批量添加</el-button>
                         <el-button type="success" icon="el-icon-plus" size="mini" @click="add()">添加</el-button>
                         <el-button type="primary" icon="el-icon-search" size="mini" @click="fetchData()">搜索</el-button>
                     </el-col>
@@ -99,6 +100,28 @@
 
                 <el-row>
                     <el-col :span="8">
+                        <el-form-item label="主要种植地区" style="">
+                            <el-select v-model="caneObj.cityCodes" style="width: 90%" placeholder="请选择">
+                                <el-option v-for="item in options"  :key="item.value" :label="item.label"  :value="item.value"> </el-option>
+                            </el-select>
+                        </el-form-item>
+                    </el-col>
+                    
+                    <el-col :span="8">
+                        <el-form-item label="编号" style="">
+                            <el-input v-model="caneObj.apprcode" style="width: 90%" placeholder="请输入编号" />
+                        </el-form-item>
+                    </el-col>
+
+                    <el-col :span="8">
+                        <el-form-item label="注意事项" style="">
+                            <el-input v-model="caneObj.remark" style="width: 90%" placeholder="请输入注意事项" />
+                        </el-form-item>
+                    </el-col>
+                </el-row>
+
+                <el-row>
+                    <el-col :span="8">
                         <el-form-item label="熟期" style="">
                             <el-input v-model="caneObj.ripePeriod" style="width: 90%" placeholder="请输入熟期" />
                         </el-form-item>
@@ -123,7 +146,7 @@
                     </el-col>
                     <el-col :span="8">
                         <el-form-item label="引进年代" style="">
-                            <el-date-picker v-model="caneObj.intorDates" style="width: 90%" type="datetime" format="yyyy 年 MM 月 dd 日 HH时 mm分 ss秒"  value-format="yyyy-MM-dd HH:mm:ss" placeholder="请选择引进年代"></el-date-picker>
+                            <el-date-picker v-model="caneObj.intorDates" style="width: 90%" type="datetime" format="yyyy 年"  value-format="yyyy" placeholder="请选择引进年代"></el-date-picker>
                         </el-form-item>
                     </el-col>
                     <el-col :span="8">
@@ -132,26 +155,6 @@
                                 <el-radio :label="'正常'">正常</el-radio>
                                 <el-radio :label="'停用'">停用</el-radio>
                             </el-radio-group>
-                        </el-form-item>
-                    </el-col>
-                </el-row>
-
-                <el-row>
-                    <el-col :span="8">
-                        <el-form-item label="主要种植地区" style="">
-                            <el-select v-model="caneObj.cityCodes" style="width: 90%" placeholder="请选择">
-                                <el-option v-for="item in options"  :key="item.value" :label="item.label"  :value="item.value"> </el-option>
-                            </el-select>
-                        </el-form-item>
-                    </el-col>
-                    <el-col :span="8">
-                        <el-form-item label="品种获取" style="">
-                            <el-input v-model="caneObj.germplasm" style="width: 90%" placeholder="请输入品种获取" />
-                        </el-form-item>
-                    </el-col>
-                    <el-col :span="8">
-                        <el-form-item label="审定编号" style="">
-                            <el-input v-model="caneObj.apprcode" style="width: 90%" placeholder="请输入审定编号" />
                         </el-form-item>
                     </el-col>
                 </el-row>
@@ -175,19 +178,6 @@
                 </el-row>
 
                 <el-row>
-                    <el-col :span="8">
-                        <el-form-item label="选育单位" style="">
-                            <el-input v-model="caneObj.breedUnits" style="width: 90%" placeholder="请输入选育单位" />
-                        </el-form-item>
-                    </el-col>
-                    <el-col :span="8">
-                        <el-form-item label="选育年代" style="">
-                            <el-date-picker v-model="caneObj.breedYear" style="width: 90%" type="datetime" format="yyyy 年 MM 月 dd 日 HH时 mm分 ss秒"  value-format="yyyy-MM-dd HH:mm:ss" placeholder="请选择选育单位"></el-date-picker>
-                        </el-form-item>
-                    </el-col>
-                </el-row>
-
-                <el-row>
                     <el-col :span="24">
                         <el-form-item label="描述信息" style="">
                             <el-input v-model="caneObj.description"  type="textarea" :autosize="{ minRows: 2, maxRows: 6 }" maxlength="1000"  show-word-limit style="width: 97%" placeholder="请输入描述信息" />
@@ -206,15 +196,15 @@
                 <el-row>
                     <el-col :span="24">
                         <el-form-item label="推荐种植区域和季节" style="">
-                            <el-input v-model="caneObj.recommendedPlanting"  type="textarea" :autosize="{ minRows: 2, maxRows: 6 }" maxlength="1000"  show-word-limit style="width: 97%" placeholder="请输入选育单位" />
+                            <el-input v-model="caneObj.recommendedPlanting"  type="textarea" :autosize="{ minRows: 2, maxRows: 6 }" maxlength="1000"  show-word-limit style="width: 97%" placeholder="请输入推荐种植区域和季节" />
                         </el-form-item>
                     </el-col>
                 </el-row>
 
                 <el-row>
                     <el-col :span="24">
-                        <el-form-item label="参考文献" style="">
-                            <el-input v-model="caneObj.reference"  type="textarea" :autosize="{ minRows: 2, maxRows: 6 }" maxlength="1000"  show-word-limit style="width: 97%" placeholder="请输入参考文献" />
+                        <el-form-item label="栽培技术" style="">
+                            <el-input v-model="caneObj.cultivationTechniques"  type="textarea" :autosize="{ minRows: 2, maxRows: 6 }" maxlength="1000"  show-word-limit style="width: 97%" placeholder="请输入栽培技术" />
                         </el-form-item>
                     </el-col>
                 </el-row>
@@ -235,6 +225,14 @@
 
             </el-form>
         </el-dialog>
+
+        <el-dialog title="提示" :visible.sync="dialogBatchVisible"  width="60%" >
+            <el-input v-model="textCopy"  type="textarea" :autosize="{ minRows: 5, maxRows: 9 }" maxlength="100000"  show-word-limit style="width: 97%" placeholder="请把品种网站的value复制到此处" />
+            <span slot="footer" class="dialog-footer">
+                <el-button @click="dialogBatchVisible = false">取 消</el-button>
+                <el-button type="primary" @click="addCaneConfirm(textCopy)">确 定</el-button>
+            </span>
+            </el-dialog>
     </div>
 </template>
 
@@ -245,12 +243,37 @@ import caneApi from '@/api/caneApi'
 export default {
     data() {
         return {
+            textCopy: '',
             datalist: [],
             categoryOptions: [],
             options: [
                 {
                     label: '广西壮族自治区',
                     value: '广西壮族自治区'
+                },
+                {
+                    label: '云南省',
+                    value: '云南省'
+                },
+                {
+                    label: '福建省',
+                    value: '福建省'
+                },
+                {
+                    label: '广东省',
+                    value: '广东省'
+                },
+                {
+                    label: '四川省',
+                    value: '四川省'
+                },
+                {
+                    label: '浙江省',
+                    value: '浙江省'
+                },
+                {
+                    label: '台湾省',
+                    value: '台湾省'
                 }
             ],
             total: 0, // 数据库中的总记录数
@@ -261,9 +284,11 @@ export default {
                 categoryId: ''
             }, // 查询表单对象
             dialogVisible: false,
+            dialogBatchVisible: false,
             dialogtitle: '',
             caneObj: '',
-            parentOptions: []
+            parentOptions: [],
+            batch: [],
         }
     },
     mounted() {
@@ -272,6 +297,32 @@ export default {
         this.getOptions()
     },
     methods: {
+        addBatch() {
+            this.dialogBatchVisible = true
+        },
+        addCaneConfirm(text) {
+            this.batch = JSON.parse(text)
+            const dataList = []
+            this.batch.forEach(element => {
+                var dataItem = {
+                    caneName: element.VarietyName,
+                    intorDates: element.DJYear,
+                    apprcode: element.RegistrationNo,
+                    description: element.VarietyFeature,
+                    recommendedPlanting: element.SuitableAreaAndSeason,
+                }
+                dataList.push(dataItem)
+            })
+            caneApi.addCaneBatch(dataList).then(res => {
+                if(res.code === 200) {
+                    this.$message({
+                        type: 'success',
+                        message: '添加成功'
+                    })
+                    this.dialogBatchVisible = false
+                }
+            })
+        },
         getOptions() {
             caneApi.getOptions().then(res => {
                 if (res.code === 200) {
