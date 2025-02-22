@@ -219,6 +219,7 @@
 
                 <div>
                     <el-button type="info" plain @click="dialogVisible = false"> <i class="el-icon-close"></i> 取消</el-button>
+                    <el-button type="primary" plain @click="checkCopy"> <i class="el-icon-document-copy"></i> 速填</el-button>
                     <el-button v-if="dialogtitle === '添加'" type="success" @click="confirmAdd()"> <i class="el-icon-plus"></i> 添加</el-button>
                     <el-button v-if="dialogtitle === '修改'" type="primary" @click="confirmUpdate()"> <i class="el-icon-edit"></i> 修改</el-button>
                 </div>
@@ -286,9 +287,34 @@ export default {
             dialogVisible: false,
             dialogBatchVisible: false,
             dialogtitle: '',
-            caneObj: '',
+            caneObj: {},
             parentOptions: [],
             batch: [],
+            texg: {
+            "RowNumber": 0,
+            "RegistrationNo": "GPD甘蔗(2019)350023",
+            "CropName": "甘蔗",
+            "VarietyName": "百年蔗",
+            "DJYear": null,
+            "SHDW": null,
+            "ApplyName": "松溪县农业局",
+            "IsTransgenosis": null,
+            "VarietySource": "地方品种",
+            "VarietyFeature": "糖料。萌芽率为66.7%；分蘖力达350%；宿根性强，亩发株3110～5663株；前中期生长快且整齐、生长势好，植株高大、直立；茎小，茎径1.635厘米，单茎重0.289～0.332千克；亩有效茎数为2687～4688条。",
+            "SuitableAreaAndSeason": "适宜在福建南平市松溪县春季种植。",
+            "Yield": "第1年新植亩产2500千克，比对照巴西蔗减产16.70%；第1年宿根亩产2500千克，比对照巴西蔗减产16.70%；第2年宿根亩产4000千克，比对照巴西蔗减产11.10%。",
+            "Quality": "蔗糖含量当年11～12月8.16%，次年1～3月8.32%。",
+            "Resistance": "中抗黑穗病，高抗花叶病，耐冷耐旱不抗倒伏。",
+            "Status": null,
+            "BreederName": "/",
+            "CultureTechnique": "相对于常规糖蔗品种，百年蔗栽培少了整地、选种、种茎处理及播种等环节，栽培技术相对简单。1.清明前后：蔗地破垄松蔸（开蔗泥），用锄头将蔗头周围的土挖开，深达蔗头以下，蔗头形成上大下小的头状物。2.深施肥，一般破畦后10～15天土壤晒白后，即施用一次水粪肥，淋在蔗根部四周，施后再经10～15天才覆土，促进根系往下扎，蔗兜基部芽萌发生长，既有利于以后抗旱，又不使生长部位抬高。3.立夏：补棵、施用低毒农药防治甘蔗蛀螟。2.小芒、夏至：人工除草各一次。4.立秋：蔗蔸培土，下有机肥（亩施250千克农家肥）。5.12月下旬：砍蔗收割，用快锄于土下1.65～3.33厘米处砍断。蔗茬与畦面平，既防止冻头，也防止蔗茎暴露在空中干枯。收割后用蔗叶蔗梢覆盖畦面减轻冻害发生。6.春分前：清理蔗叶，减少病虫害发生。",
+            "Attentions": "成熟期易倒伏，注意搭建支架。",
+            "IsAnnouncement": null,
+            "VarietyHasLincense": null,
+            "HasGrant": null,
+            "HasPromotion": null,
+            "HasFilling": null
+            }
         }
     },
     mounted() {
@@ -297,6 +323,31 @@ export default {
         this.getOptions()
     },
     methods: {
+        checkCopy() {
+            this.$prompt('请输入复制好的value值', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                // inputPattern: /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,
+                inputErrorMessage: 'value格式不正确'
+                }).then(({ value }) => {
+                    value = JSON.parse(value)
+                    console.log(value)
+                    this.caneObj.cultivationTechniques = value.CultureTechnique
+                    this.caneObj.remark = value.Attentions
+                    this.caneObj.description = value.Resistance
+                    this.caneObj.variFeatures = value.VarietyFeature,
+
+                    this.$message({
+                        type: 'success',
+                        message: '输入成功'
+                    })
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '取消输入'
+                    })     
+            })
+        },
         addBatch() {
             this.dialogBatchVisible = true
         },
@@ -308,7 +359,7 @@ export default {
                     caneName: element.VarietyName,
                     intorDates: element.DJYear,
                     apprcode: element.RegistrationNo,
-                    description: element.VarietyFeature,
+                    variFeatures: element.VarietyFeature,
                     recommendedPlanting: element.SuitableAreaAndSeason,
                 }
                 dataList.push(dataItem)
@@ -320,6 +371,8 @@ export default {
                         message: '添加成功'
                     })
                     this.dialogBatchVisible = false
+                    this.textCopy = ''
+                    this.fetchData()
                 }
             })
         },
