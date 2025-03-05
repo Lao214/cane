@@ -132,6 +132,24 @@
                         </div>
                     </div>
                     <div class="info-text">
+                        <el-divider content-position="left"><span style="font-size: 1.4rem;">栽培技术</span></el-divider>
+                        <div class="info-content">
+                            {{ caneObj.cultivationTechniques }}
+                        </div>
+                    </div>
+                    <div class="info-text">
+                        <el-divider content-position="left"><span style="font-size: 1.4rem;">栽培技术</span></el-divider>
+                        <div class="info-content">
+                            {{ caneObj.cultivationTechniques }}
+                        </div>
+                    </div>
+                    <div class="info-text">
+                        <el-divider content-position="left"><span style="font-size: 1.4rem;">注意事项</span></el-divider>
+                        <div class="info-content">
+                            {{ caneObj.remark }}
+                        </div>
+                    </div>
+                    <div class="info-text">
                         <el-divider content-position="left"><span style="font-size: 1.4rem;">专家建议</span></el-divider>
                         <div class="info-content">
                             {{ caneObj.expertAdvice }}

@@ -79,16 +79,18 @@
                 <el-row>
                     <el-col :span="8">
                         <el-form-item label="亲本信息父" style="">
-                            <el-select v-model="caneObj.parentId" style="width: 90%" filterable placeholder="请选择">
+                            <el-input v-model="caneObj.parentId" style="width: 90%" placeholder="请输入亲本信息父" />
+                            <!-- <el-select v-model="caneObj.parentId" style="width: 90%" filterable placeholder="请选择">
                                 <el-option  v-for="item in parentOptions" :key="item.value"  :label="item.label" :value="item.value"> </el-option>
-                            </el-select>
+                            </el-select> -->
                         </el-form-item>
                     </el-col>
                     <el-col :span="8">
                         <el-form-item label="亲本信息母" style="">
-                            <el-select v-model="caneObj.motherId" style="width: 90%" filterable placeholder="请选择">
+                            <el-input v-model="caneObj.motherId" style="width: 90%" placeholder="请输入亲本信息母" />
+                            <!-- <el-select v-model="caneObj.motherId" style="width: 90%" filterable placeholder="请选择">
                                 <el-option  v-for="item in parentOptions" :key="item.value"  :label="item.label" :value="item.value"> </el-option>
-                            </el-select>
+                            </el-select> -->
                         </el-form-item>
                     </el-col>
                     <el-col :span="8">
@@ -289,32 +291,7 @@ export default {
             dialogtitle: '',
             caneObj: {},
             parentOptions: [],
-            batch: [],
-            texg: {
-            "RowNumber": 0,
-            "RegistrationNo": "GPD甘蔗(2019)350023",
-            "CropName": "甘蔗",
-            "VarietyName": "百年蔗",
-            "DJYear": null,
-            "SHDW": null,
-            "ApplyName": "松溪县农业局",
-            "IsTransgenosis": null,
-            "VarietySource": "地方品种",
-            "VarietyFeature": "糖料。萌芽率为66.7%；分蘖力达350%；宿根性强，亩发株3110～5663株；前中期生长快且整齐、生长势好，植株高大、直立；茎小，茎径1.635厘米，单茎重0.289～0.332千克；亩有效茎数为2687～4688条。",
-            "SuitableAreaAndSeason": "适宜在福建南平市松溪县春季种植。",
-            "Yield": "第1年新植亩产2500千克，比对照巴西蔗减产16.70%；第1年宿根亩产2500千克，比对照巴西蔗减产16.70%；第2年宿根亩产4000千克，比对照巴西蔗减产11.10%。",
-            "Quality": "蔗糖含量当年11～12月8.16%，次年1～3月8.32%。",
-            "Resistance": "中抗黑穗病，高抗花叶病，耐冷耐旱不抗倒伏。",
-            "Status": null,
-            "BreederName": "/",
-            "CultureTechnique": "相对于常规糖蔗品种，百年蔗栽培少了整地、选种、种茎处理及播种等环节，栽培技术相对简单。1.清明前后：蔗地破垄松蔸（开蔗泥），用锄头将蔗头周围的土挖开，深达蔗头以下，蔗头形成上大下小的头状物。2.深施肥，一般破畦后10～15天土壤晒白后，即施用一次水粪肥，淋在蔗根部四周，施后再经10～15天才覆土，促进根系往下扎，蔗兜基部芽萌发生长，既有利于以后抗旱，又不使生长部位抬高。3.立夏：补棵、施用低毒农药防治甘蔗蛀螟。2.小芒、夏至：人工除草各一次。4.立秋：蔗蔸培土，下有机肥（亩施250千克农家肥）。5.12月下旬：砍蔗收割，用快锄于土下1.65～3.33厘米处砍断。蔗茬与畦面平，既防止冻头，也防止蔗茎暴露在空中干枯。收割后用蔗叶蔗梢覆盖畦面减轻冻害发生。6.春分前：清理蔗叶，减少病虫害发生。",
-            "Attentions": "成熟期易倒伏，注意搭建支架。",
-            "IsAnnouncement": null,
-            "VarietyHasLincense": null,
-            "HasGrant": null,
-            "HasPromotion": null,
-            "HasFilling": null
-            }
+            batch: []
         }
     },
     mounted() {
