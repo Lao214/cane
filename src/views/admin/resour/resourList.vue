@@ -38,6 +38,13 @@
                         <span style="background: #e9d554;color: white;padding: 7px;">{{ scope.row.caneAlias }}</span>
                     </template>
                 </el-table-column>
+                <el-table-column prop="inagePath" label="图片">
+                    <template slot-scope="scope">
+                        <ImageUpload :initialImageUrl="scope.row.imagePath"  
+                        @file-selected="handleFileSelected(scope.row, $event)"
+                        @image-removed="handleImageRemoved(scope.row.id)"/>
+                    </template>
+                </el-table-column>
                 <el-table-column prop="createTime" label="创建时间"></el-table-column>
 
                 <el-table-column label="操作" align="center" fixed="right">
@@ -242,13 +249,19 @@
 <script>
 import categoryApi from '@/api/categoryApi'
 import caneApi from '@/api/caneApi'
+import minIOApi from '@/api/minIOApi'
+import ImageUpload from '../../../components/upload/ImageUploader.vue'
 
 export default {
+    components: {
+        ImageUpload
+    },
     data() {
         return {
             textCopy: '',
             datalist: [],
             categoryOptions: [],
+            initialImageUrl: '', // 初始图片 URL
             options: [
                 {
                     label: '广西壮族自治区',
@@ -300,6 +313,30 @@ export default {
         this.getOptions()
     },
     methods: {
+        // 处理文件选择
+        handleFileSelected(row, file) {
+            console.log('当前行的 ID:', row.id);
+            console.log('选择的文件:', file);
+            // 在这里可以根据 id 和 file 更新对应的数据
+            // 例如：调用 API 上传文件，并更新对应行的 imagePath
+            let formData = new FormData()
+            formData.append('file',file, `${row.categoryName}.jpg`)
+            formData.append('id',row.id)
+        
+            minIOApi.uploadCarousel(formData).then(response => {
+                // this.caneObj.imagePath = response.data
+                this.$message({
+                    type: 'success',
+                    message: '上传成功'
+                })
+            })
+        },
+        // 处理图片移除
+        handleImageRemoved(id) {
+            console.log('当前行的 ID:', id);
+            // 在这里可以根据 id 更新对应的数据
+            // 例如：调用 API 移除图片，并清空对应行的 imagePath
+        },
         checkCopy() {
             this.$prompt('请输入复制好的value值', '提示', {
                 confirmButtonText: '确定',
@@ -308,7 +345,6 @@ export default {
                 inputErrorMessage: 'value格式不正确'
                 }).then(({ value }) => {
                     value = JSON.parse(value)
-                    console.log(value)
                     this.caneObj.cultivationTechniques = value.CultureTechnique
                     this.caneObj.remark = value.Attentions
                     this.caneObj.description = value.Resistance
