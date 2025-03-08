@@ -110,7 +110,7 @@
                 <el-row>
                     <el-col :span="8">
                         <el-form-item label="主要种植地区" style="">
-                            <el-select v-model="caneObj.cityCodes" style="width: 90%" placeholder="请选择">
+                            <el-select v-model="areaList" multiple style="width: 90%" placeholder="请选择">
                                 <el-option v-for="item in options"  :key="item.value" :label="item.label"  :value="item.value"> </el-option>
                             </el-select>
                         </el-form-item>
@@ -304,7 +304,8 @@ export default {
             dialogtitle: '',
             caneObj: {},
             parentOptions: [],
-            batch: []
+            batch: [],
+            areaList: []
         }
     },
     mounted() {
@@ -418,6 +419,7 @@ export default {
             this.caneObj = {}
         },
         confirmAdd() {
+            this.caneObj.cityCodes = this.areaList.join(',')
             caneApi.addCane(this.caneObj).then(res => {
                 if(res.code === 200) {
                     this.$message({
@@ -430,6 +432,7 @@ export default {
             })
         },
         confirmUpdate() {
+            this.caneObj.cityCodes = this.areaList.join(',')
             caneApi.updateCane(this.caneObj).then(res => {
                 if(res.code === 200) {
                     this.$message({
@@ -460,12 +463,19 @@ export default {
                     this.caneObj = res.data.data;
                     this.caneObj.categoryChose = [];
 
+                    if(this.caneObj.cityCodes) {
+                        this.areaList = this.caneObj.cityCodes.split(',')
+                    } else {
+                        this.areaList = []
+                    }
+
                     // 检查 categoryOptions 是否为数组
                     if (!Array.isArray(this.categoryOptions) || this.categoryOptions.length === 0) {
                         console.error("categoryOptions 未初始化或为空:", this.categoryOptions);
                         return;
                     }
 
+                
                     // 检查 categoryId 是否存在
                     if (!this.caneObj.categoryId) {
                         console.error("categoryId 未定义:", this.caneObj.categoryId);
@@ -486,13 +496,14 @@ export default {
                             }
 
                             // 如果存在 children，继续递归
-                            if (Array.isArray(category.children) && category.children.length > 0) {
+                            if (category.children && Array.isArray(category.children) && category.children.length > 0) {
                                 const found = findCategory(category.children, targetValue, newPath);
                                 if (found) return true; // 找到后停止递归
                             }
                         }
                         return false;
                     };
+
 
                     const found = findCategory(this.categoryOptions, this.caneObj.categoryId);
 
