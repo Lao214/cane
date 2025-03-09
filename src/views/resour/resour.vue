@@ -44,6 +44,10 @@
                             <span>{{ caneObj.caneName }}</span> 
                         </div>
                         <div class="info-item">
+                            <span class="info-label">分类</span> 
+                            <span>{{ caneObj.categoryName }}</span> 
+                        </div>
+                        <!-- <div class="info-item">
                             <span class="info-label">甘蔗别名</span> 
                             <span>{{ caneObj.caneAlias }}</span> 
                         </div>
@@ -51,11 +55,7 @@
                         <div class="info-item">
                             <span class="info-label">属名</span> 
                             <span>{{ caneObj.genericname }}</span> 
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">分类</span> 
-                            <span>{{ caneObj.categoryName }}</span> 
-                        </div>
+                        </div> -->
 
                         <div class="info-item">
                             <span class="info-label">亲本信息父</span> 
@@ -89,7 +89,7 @@
                             <span>{{ caneObj.intorDates }}</span> 
                         </div>
                         <div class="info-item">
-                            <span class="info-label">引入单位</span> 
+                            <span class="info-label">申请单位</span> 
                             <span>{{ caneObj.intorBusiness }}</span> 
                         </div>
 
@@ -137,18 +137,12 @@
                             {{ caneObj.cultivationTechniques }}
                         </div>
                     </div>
-                    <div class="info-text">
-                        <el-divider content-position="left"><span style="font-size: 1.4rem;">栽培技术</span></el-divider>
-                        <div class="info-content">
-                            {{ caneObj.cultivationTechniques }}
-                        </div>
-                    </div>
-                    <div class="info-text">
+                    <!-- <div class="info-text">
                         <el-divider content-position="left"><span style="font-size: 1.4rem;">注意事项</span></el-divider>
                         <div class="info-content">
                             {{ caneObj.remark }}
                         </div>
-                    </div>
+                    </div> -->
                     <div class="info-text">
                         <el-divider content-position="left"><span style="font-size: 1.4rem;">专家建议</span></el-divider>
                         <div class="info-content">

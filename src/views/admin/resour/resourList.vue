@@ -149,8 +149,8 @@
 
                 <el-row>
                     <el-col :span="8">
-                        <el-form-item label="引进单位" style="">
-                            <el-input v-model="caneObj.intorBusiness" style="width: 90%" placeholder="请输入引进单位" />
+                        <el-form-item label="申请单位" style="">
+                            <el-input v-model="caneObj.intorBusiness" style="width: 90%" placeholder="请输入申请单位" />
                         </el-form-item>
                     </el-col>
                     <el-col :span="8">
