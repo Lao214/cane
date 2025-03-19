@@ -139,6 +139,11 @@ export const constantRoutes = [
                 component: () => import( '@/views/admin/resour/category.vue'),
                 title: '分类管理',
             },
+            {
+                path: '/admin/csList',
+                component: () => import( '@/views/admin/resour/csList.vue'),
+                title: '甘蔗敏抗列表',
+            },
         ]
     },
     // 用户端路由集

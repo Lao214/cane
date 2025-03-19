@@ -23,7 +23,7 @@
 
                 <div class="left-icon" @click="switchMenus(4)" :style="{ background: menuTitle === '资源共享' ? '#00000037' : '' }">
                     <svg t="1715687949328" class="icon" viewBox="0 0 1090 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7734" width="28" height="28"><path d="M1026.60096 46.08h-849.92a10.24 10.24 0 0 0-10.24 10.24v348.16h102.4V250.88h665.6v256h102.4V56.32a10.24 10.24 0 0 0-10.24-10.24z m-92.16 153.6h-665.6V97.28h665.6v102.4z m119.10656 508.29312c13.25568-13.14304-157.80864 181.4272-157.80864 181.4272h-321.81248c-76.9024 0-221.00992-98.17088-380.16 21.4528C181.84704 897.69472 20.48 729.00096 20.48 729.00096s293.54496-178.3296 309.43744-187.5456c119.36256-57.8304 206.88896 33.32096 238.70976 33.32096h250.18368c39.78752 0 84.8896 77.98272 0 104.27904h-207.72352s3.08224 42.496 44.18048 42.496h201.59488s83.95776-83.26144 97.21856-97.7152c33.15712-43.37152 60.14464-3.49184 60.14464-3.49184s99.00544-5.70368 39.3216 87.6288z" p-id="7735" fill="#FFFFFF"></path></svg>
-                    <h5 style="margin: 0;color: #FFFFFF;">甘蔗数据库</h5>
+                    <h5 style="margin: 0;color: #FFFFFF;">数据库</h5>
                 </div>
 
                 <!-- <div class="left-icon" @click="switchMenus(5)" :style="{ background: menuTitle === '数据统计' ? '#00000037' : '' }">
@@ -104,25 +104,31 @@ export default {
                 {
                     id: "7",
                     icon: 'el-icon-share',
-                    name: '甘蔗列表',
+                    name: '品种数据库',
                     router: '/admin/resourList'
+                },
+                {
+                    id: "8",
+                    icon: 'el-icon-s-grid',
+                    name: '敏感性指标数据库',
+                    router: '/admin/csList'
                 }
             ],
             menusFive: [
                 {
-                    id: "8",
+                    id: "9",
                     icon: 'el-icon-user',
                     name: '用户统计',
                     router: ''
                 },
                 {
-                    id: "9",
+                    id: "10",
                     icon: 'el-icon-s-data',
                     name: '活动统计',
                     router: ''
                 },
                 {
-                    id: "10",
+                    id: "11",
                     icon: 'el-icon-menu',
                     name: '资源使用情况',
                     router: ''
@@ -136,7 +142,7 @@ export default {
                 //     router: ''
                 // },
                 {
-                    id: "11",
+                    id: "12",
                     icon: 'el-icon-s-help',
                     name: '首页',
                     router: '/dashboard'
