@@ -16,6 +16,16 @@ export const constantRoutes = [
         redirect: '/home',
         children: [
             {
+                path: '/cs',
+                component: () => import( '@/views/resour/cs.vue'),
+                title: '抗敏性指标',
+            },
+            {
+                path: '/csDetails',
+                component: () => import( '@/views/resour/csDetatils.vue'),
+                title: '抗敏性指标详情',
+            },
+            {
                 path: '/home',
                 component: () => import( '@/views/home/index.vue'),
                 title: '首页',
