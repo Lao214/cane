@@ -296,7 +296,7 @@
                     <el-form label-width="100px" size="small">
                         <el-row>
                             <el-col :span="8">
-                                <el-form-item label="品种抗旱级别" style="">
+                                <el-form-item label="抗黑穗病级别" style="">
                                     <el-input v-model="caneObj.resistanceLevelHei" style="width: 90%" placeholder="请输入品种抗旱级别" />
                                 </el-form-item>
                             </el-col>
