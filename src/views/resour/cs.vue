@@ -2,6 +2,15 @@
     <div class="body">
         <h1>敏感指标</h1>
 
+        <div style="display: flex;align-items: center;margin: 1rem 0;flex-wrap: wrap;">
+
+            <MySelect v-model="hanSelected" label="抗旱：" :options="hanOptions"></MySelect>
+
+            <MySelect v-model="coldSelected" label="抗寒：" :options="coldOptions"></MySelect>
+
+            <MySelect v-model="smutSelected" label="抗黑穗病：" :options="smutOptions"></MySelect>
+        </div>
+
         <div class="archive">
             <div class="archive-content">
                 <p class="archive-title">归档</p>
@@ -13,7 +22,7 @@
                     </div>
                 </div>
                 <div class="archive-list-footer">
-                    <el-pagination background layout="prev, pager, next" :total="total" style="margin-bottom: 34px;"></el-pagination>
+                    <el-pagination background layout="prev, pager, next" :total="total" @current-change="fetchData" style="margin-bottom: 34px;"></el-pagination>
                 </div>
             </div>
         </div>
@@ -25,8 +34,12 @@
 
 <script>
 import caneSensitivity from '@/api/caneSensitivity'
+import MySelect from '@/components/Select/MySelect.vue'
 
 export default {
+    components: {
+        MySelect
+    },
     data() {
         return {
             total: 0, // 数据库中的总记录数
@@ -36,13 +49,34 @@ export default {
             searchObj: {
                 keyword: '',
                 category: 'all',
-                sortType: 'times'
+                sortType: 'times',
+                resistanceLevelHan: '',
+                resistanceLevelHei: '',
+                resistanceLevel: ''
             },
+            hanSelected: '',
+            hanOptions: [],
+            coldSelected: '',
+            coldOptions: [],
+            smutSelected: '',
+            smutOptions: [],
         }
     },
     watch: {
         'searchObj.sortType': function (newValue, oldValue) {
             console.log('搜索排序类型从', oldValue, '变为', newValue)
+            this.fetchData()
+        },
+        async hanSelected(newValue) {
+            this.searchObj.resistanceLevelHan = newValue
+            this.fetchData()
+        },
+        async coldSelected(newValue) {
+            this.searchObj.resistanceLevel = newValue
+            this.fetchData()
+        },
+        async smutSelected(newValue) {
+            this.searchObj.resistanceLevelHei = newValue
             this.fetchData()
         }
     },
@@ -56,6 +90,8 @@ export default {
         this.searchObj.keyword = this.$route.query.skword
 
         await this.fetchData()
+
+        await this.getOptions()
     },
     methods: {
         viewResour(item) {
@@ -82,7 +118,17 @@ export default {
                     this.total = response.data.data.total
                 }
             })
-        },
+        },        
+        getOptions() {
+            caneSensitivity.getFilterOptions().then(res => {
+                if (res.code === 200) {
+                    console.log(res.data, 'res.data.data')
+                    this.coldOptions =res.data.resistanceLevelOptions
+                    this.hanOptions =res.data.resistanceLevelOptionsHan
+                    this.smutOptions =res.data.resistanceLevelOptionsHei
+                }
+            })
+        }
     }
 }
 </script>

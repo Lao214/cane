@@ -78,5 +78,12 @@ export default {
             url: `${api_name}/getOptions`,
             method: 'get'
         })
+    },
+    getFilterOptions() {
+        return request({
+            // 接口路径
+            url: `${api_name}/getFilterOptions`,
+            method: 'get'
+        })
     }
 }
