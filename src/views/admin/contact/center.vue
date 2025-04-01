@@ -27,6 +27,7 @@
                         <el-table-column label="操作" align="center" fixed="right">
                             <template slot-scope="scope">
                                 <el-button type="primary" icon="el-icon-view" size="mini" title="查看" @click="view(scope.row)" />
+                                <el-button type="danger" icon="el-icon-delete-solid" size="mini" title="删除" @click="delContact(scope.row)" />
                             </template>
                         </el-table-column>
                     </el-table>
@@ -60,6 +61,7 @@
                         <el-table-column label="操作" align="center" fixed="right">
                             <template slot-scope="scope">
                                 <el-button type="primary" icon="el-icon-view" size="mini" title="查看" @click="view(scope.row)" />
+                                <el-button type="danger" icon="el-icon-delete-solid" size="mini" title="删除" @click="delContact(scope.row)" />
                             </template>
                         </el-table-column>
                     </el-table>
@@ -130,6 +132,15 @@ export default {
                     }
                 }
             )
+        },
+        delContact(row) {
+            contactApi.delContact(row.id).then(response => {
+                this.$message({
+                    type: 'success',
+                    message: '删除成功!'
+                })
+                this.fetchData()
+            })
         }
     },
     mounted() {

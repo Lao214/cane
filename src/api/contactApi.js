@@ -1,4 +1,5 @@
 import request from '@/utils/request'
+import { del } from 'vue'
 
 // 常量
 const api_name = '/contact'
@@ -22,6 +23,12 @@ export default {
         return request({
             url: `${api_name}/readed/${id}`,
             method: 'get'
+        })
+    },
+    delContact(id) {
+        return request({
+            url: `${api_name}/delContact/${id}`,
+            method: 'delete'
         })
     },
     // 列表
