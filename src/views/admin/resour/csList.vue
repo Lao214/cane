@@ -103,8 +103,8 @@
                             </el-col>
 
                             <el-col :span="8">
-                                <el-form-item label="楚质层、角质层" style="">
-                                    <el-input v-model="caneObj.cuticleStratumCorneum" style="width: 90%" placeholder="请输入楚质层、角质层" />
+                                <el-form-item label="蜡质层、角质层" style="">
+                                    <el-input v-model="caneObj.cuticleStratumCorneum" style="width: 90%" placeholder="请输入蜡质层、角质层" />
                                 </el-form-item>
                             </el-col>
 
@@ -218,8 +218,8 @@
                             </el-col>
 
                             <el-col :span="8">
-                                <el-form-item label="楚质层、角质层" style="">
-                                    <el-input v-model="caneObj.cuticleStratumCorneumHan" style="width: 90%" placeholder="请输入楚质层、角质层" />
+                                <el-form-item label="蜡质层、角质层" style="">
+                                    <el-input v-model="caneObj.cuticleStratumCorneumHan" style="width: 90%" placeholder="请输入蜡质层、角质层" />
                                 </el-form-item>
                             </el-col>
 
@@ -333,8 +333,8 @@
                             </el-col>
 
                             <el-col :span="8">
-                                <el-form-item label="楚质层、角质层" style="">
-                                    <el-input v-model="caneObj.cuticleStratumCorneumHei" style="width: 90%" placeholder="请输入楚质层、角质层" />
+                                <el-form-item label="蜡质层、角质层" style="">
+                                    <el-input v-model="caneObj.cuticleStratumCorneumHei" style="width: 90%" placeholder="请输入蜡质层、角质层" />
                                 </el-form-item>
                             </el-col>
 

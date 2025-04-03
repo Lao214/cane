@@ -40,7 +40,7 @@
                                     <span>{{ caneObj.epidermalCells }}</span> 
                                 </div>
                                 <div class="info-item">
-                                    <span class="info-label">楚质层、角质层</span> 
+                                    <span class="info-label">蜡质层、角质层</span> 
                                     <span>{{ caneObj.cuticleStratumCorneum }}</span> 
                                 </div>
 
@@ -137,7 +137,7 @@
                                     <span>{{ caneObj.epidermalCellsHan  }}</span> 
                                 </div>
                                 <div class="info-item">
-                                    <span class="info-label">楚质层、角质层</span> 
+                                    <span class="info-label">蜡质层、角质层</span> 
                                     <span>{{ caneObj.cuticleStratumCorneumHan  }}</span> 
                                 </div>
 
@@ -234,7 +234,7 @@
                                     <span>{{ caneObj.epidermalCellsHei }}</span> 
                                 </div>
                                 <div class="info-item">
-                                    <span class="info-label">楚质层、角质层</span> 
+                                    <span class="info-label">蜡质层、角质层</span> 
                                     <span>{{ caneObj.cuticleStratumCorneumHei }}</span> 
                                 </div>
 

@@ -1,7 +1,7 @@
 <template>
     <div class="custom-select">
       <label v-if="label" class="custom-label">{{ label }}</label>
-      <el-select v-model="selectedValue" v-bind="$attrs" v-on="$listeners">
+      <el-select v-model="selectedValue" v-bind="$attrs" clearable filterable v-on="$listeners">
         <el-option v-for="option in options" :key="option.value" :label="option.label" :value="option.value" ></el-option>
       </el-select>
     </div>

@@ -104,7 +104,7 @@ export default {
                 {
                     id: "7",
                     icon: 'el-icon-share',
-                    name: '品种数据库',
+                    name: '种质数据库',
                     router: '/admin/resourList'
                 },
                 {
