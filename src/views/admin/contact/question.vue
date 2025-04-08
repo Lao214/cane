@@ -44,6 +44,7 @@
                         <div style="margin: 0;margin-top: .2rem;  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;" v-html="item.questionAnswer"></div>
                         <div style="margin: 0;margin-top: .8rem; text-align: end;">
                             <div style="display: flex;align-items: center;"> <img :src="item.answerAvatar" style="width: 1.7rem;margin-right: .2rem;border-radius: 50%;" alt=""> {{ item.answerNickname }} <span style="margin-left: .4rem;">{{ item.answerTime }}</span> </div>
+                            <div><el-button type="success" icon="el-icon-edit" size="mini" @click="reply(item.id)">修改</el-button></div>
                         </div>
                     </div>
                 </div>
@@ -104,6 +105,7 @@
                 <el-button @click="confirmReply()" type="success">回 复</el-button>
             </span>
         </el-dialog>
+
     </div>
 </template>
 
@@ -216,6 +218,7 @@ export default {
                         message: '回复成功'
                     })
                     this.dialogVisible = false
+                    this.fetchData()
                 }
             })
         }
