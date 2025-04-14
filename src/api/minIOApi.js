@@ -20,5 +20,17 @@ export default {
             url: `/minIO/delCarousel/${id}/${bannerImg}`,
             method: 'delete'
         })
-    }
+    },
+        /* 保存 */
+        uploadImg(form) {
+            return request({
+                url: '/minIO/uploadImg',
+                method: 'post',
+                data: form,
+                headers: {
+                  'Content-Type': 'multipart/form-data',
+                },
+            })
+        },
+    
 }

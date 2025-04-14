@@ -112,6 +112,12 @@ export default {
                     icon: 'el-icon-s-grid',
                     name: '敏感性指标数据库',
                     router: '/admin/csList'
+                },
+                {
+                    id: "13",
+                    icon: 'el-icon-picture',
+                    name: '图片',
+                    router: '/admin/img'
                 }
             ],
             menusFive: [

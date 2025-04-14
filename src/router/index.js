@@ -154,6 +154,11 @@ export const constantRoutes = [
                 component: () => import( '@/views/admin/resour/csList.vue'),
                 title: '甘蔗敏抗列表',
             },
+            {
+                path: '/admin/img',
+                component: () => import( '@/views/admin/resour/img.vue'),
+                title: '甘蔗敏抗列表',
+            },
         ]
     },
     // 用户端路由集
