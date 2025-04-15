@@ -84,6 +84,31 @@ export const constantRoutes = [
                 path: '/background',
                 component: () => import('@/views/home/background'),
                 hidden: true
+            },
+            {
+                path: '/wuming',
+                component: () => import('@/views/resour/wuming'),
+                hidden: true
+            },
+            {
+                path: '/fusui',
+                component: () => import('@/views/resour/fusui'),
+                hidden: true
+            },
+            {
+                path: '/wumingDetails',
+                component: () => import('@/views/resour/wumingDetails'),
+                hidden: true
+            },
+            {
+                path: '/fusuiDetails',
+                component: () => import('@/views/resour/fusuiDetails'),
+                hidden: true
+            },
+            {
+                path: '/img',
+                component: () => import('@/views/resour/img'),
+                hidden: true
             }
         ]
     },
@@ -157,7 +182,17 @@ export const constantRoutes = [
             {
                 path: '/admin/img',
                 component: () => import( '@/views/admin/resour/img.vue'),
-                title: '甘蔗敏抗列表',
+                title: '图片上传',
+            },
+            {
+                path: '/admin/wuming',
+                component: () => import( '@/views/admin/resour/wuming.vue'),
+                title: '武鸣基地数据',
+            },
+            {
+                path: '/admin/fusui',
+                component: () => import( '@/views/admin/resour/fusui.vue'),
+                title: '扶绥基地数据',
             },
         ]
     },

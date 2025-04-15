@@ -21,6 +21,7 @@
             </el-form>
         </div>
 
+        
         <div class="table-box">
             <el-table :data="datalist" style="width: 100%">
                 <el-table-column prop="caneName" label="甘蔗名称" width="180"></el-table-column>

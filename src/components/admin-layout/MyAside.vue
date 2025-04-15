@@ -118,6 +118,18 @@ export default {
                     icon: 'el-icon-picture',
                     name: '图片',
                     router: '/admin/img'
+                },
+                {
+                    id: "14",
+                    icon: 'el-icon-s-grid',
+                    name: '武鸣基地数据',
+                    router: '/admin/wuming'
+                },
+                {
+                    id: "15",
+                    icon: 'el-icon-s-grid',
+                    name: '扶绥基地数据',
+                    router: '/admin/fusui'
                 }
             ],
             menusFive: [

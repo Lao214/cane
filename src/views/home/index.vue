@@ -70,6 +70,11 @@
             <p style="margin: 0;font-weight: 500;color: #ffffff;font-size: 1.2rem;">专家答疑</p>
         </div>
 
+        <div class="contractUs"  @click="contractUs()">
+            <img src="../../assets/icon/联系我们.png" style="width: 3.2rem;height: 3.2rem;" alt="">
+            <p style="margin: 0;font-weight: 500;color: #ffffff;font-size: 1.2rem;">联系我们</p>
+        </div>
+
         <el-dialog title="提示"  :visible.sync="dialogVisible" width="70%" :close-on-click-modal="false" >
             <el-form label-width="100px" size="small">
                 <el-row>
@@ -158,6 +163,12 @@ export default {
         },
         goHomeNews() {
             this.$router.push('/homeNews')
+        },
+        contractUs() {
+            if(this.$router.currentRoute.path === '/contactUs') {
+                return
+            }
+            this.$router.push('/contactUs')
         },
         getHomeNews() {
             newApi.getHomeNews().then(res => {
@@ -448,6 +459,19 @@ export default {
     cursor: pointer;
 }
 .zhuanjia:hover {
+    background: yellowgreen;
+}
+
+.contractUs {
+    position: fixed;
+    right: 1rem;
+    top: 35%;
+    background: #32b753;
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+.contractUs:hover {
     background: yellowgreen;
 }
 </style>

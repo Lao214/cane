@@ -10,7 +10,9 @@
             <span class="link-3" @click="goByHeader('/background')" >项目背景</span>
             <span class="link-3" @click="goByHeader('/resours')" >种质数据库</span>
             <span class="link-3" @click="goByHeader('/cs')" >敏感指标数据库</span>
-            <span class="link-3" @click="contractUs()" >联系我们</span>
+            <span class="link-3" @click="goByHeader('/wuming')" >武鸣基地数据</span>
+            <span class="link-3" @click="goByHeader('/fusui')" >扶绥基地数据</span>
+            <span class="link-3" @click="goByHeader('/img')" >图片</span>
         </div>
 
         <div v-if="!nickname" class="login">
