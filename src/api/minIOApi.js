@@ -21,16 +21,22 @@ export default {
             method: 'delete'
         })
     },
-        /* 保存 */
-        uploadImg(form) {
-            return request({
-                url: '/minIO/uploadImg',
-                method: 'post',
-                data: form,
-                headers: {
-                  'Content-Type': 'multipart/form-data',
-                },
-            })
-        },
+     /* 保存 */
+    uploadImg(form) {
+        return request({
+            url: '/minIO/uploadImg',
+            method: 'post',
+            data: form,
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        })
+    },
+    delImg(id,imgName) {
+        return request({
+            url: `/minIO/delImg/${id}/${imgName}`,
+            method: 'delete'
+        })
+    },
     
 }
