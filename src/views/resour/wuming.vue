@@ -14,7 +14,7 @@
             </el-select>
         </div>
 
-        <h1>扶绥基地数据</h1>
+        <h1>武鸣基地数据</h1>
 
         <div class="table-box">
             <el-table :data="cardList" style="width: 100%">

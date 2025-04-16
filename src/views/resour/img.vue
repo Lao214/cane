@@ -1,5 +1,12 @@
 <template>
-    <div style="padding: 1rem;">
+    <div class="body">
+
+        <!-- 搜索框 -->
+        <div class="input-container">
+            <input v-model="searchObj.imgName" placeholder="用搜索更简单" type="text" class="input">
+            <span @click="fetchData()">立刻搜索</span>
+        </div>
+
         <div class="table-box">
             <el-table :data="datalist" style="width: 100%">
                 <el-table-column prop="imgName" label="图片名称" width="180"></el-table-column>
@@ -7,7 +14,11 @@
                 <el-table-column prop="inagePath" label="图片">
                     <template slot-scope="scope">
                         <div style="border: .04rem solid grey;width: 8rem;">
-                            <img :src="scope.row.imgPath" style="width: 100%;" alt="">
+                            <el-image 
+                                style="width: 8rem;"
+                                :src="scope.row.imgPath" 
+                                :preview-src-list="srcList">
+                            </el-image>
                         </div>
                     </template>
                 </el-table-column>
@@ -39,10 +50,10 @@ export default {
             page: 1, // 默认页码
             limit: 10, // 每页记录数
             searchObj: {
-                keyword: '',
-                categoryId: ''
+                imgName: '',
             }, // 查询表单对象
             fileList: [],
+            srcList: [],
             datalist: null,
         }
     },
@@ -120,6 +131,9 @@ export default {
                 if(response.code === 200) {
                     this.datalist = response.data.data.records
                     this.total = response.data.data.total
+                    this.datalist.forEach(element => {
+                        this.srcList.push(element.imgPath)
+                    });
                 }
             })
         }
@@ -128,6 +142,13 @@ export default {
 </script>
 
 <style scoped>
+
+.body {
+  padding-top: 114px;
+  padding-bottom: 4rem;
+  margin: 0 5vw;
+  background: white;
+}
 .search-box {
     background: white;
     width: calc(100% - 40px);
@@ -138,5 +159,91 @@ export default {
 
 .upload-demo {
     width: 100%;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  min-width: 490px;
+  width: 47%;
+}
+
+.input-container > span,
+.input-container .input {
+  white-space: nowrap;
+  display: block;
+}
+
+.input-container > span,
+.input-container .input:first-child {
+  /* border-radius: 6px 0 0 6px; */
+}
+
+.input-container > span,
+.input-container .input {
+  /* border-radius: 0 6px 6px 0; */
+}
+
+.input-container > span,
+.input-container .input {
+  margin-left: -1px;
+}
+
+.input-container .input {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 auto;
+  width: 1%;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.input-container span {
+  text-align: center;
+  padding: 8px 20px;
+  font-size: 16px;
+  line-height: 25px;
+  color: #fff;
+  background: #32b753;
+  border: 1px solid #CDD9ED;
+  font-weight: bold;
+  transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
+}
+
+.input-container:focus-within > span {
+  color: #fff;
+  /* background-color: #148cd1; */
+  /* border-color: #148cd1; */
+  background-color: #39bda7;
+  border-color: #39bda7;
+  cursor: pointer;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  line-height: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  /* border-radius: 6px; */
+  -webkit-appearance: none;
+  color: #99A3BA;
+  border: 1px solid  #CDD9ED;
+  background: #fff;
+  transition: border 0.3s ease;
+}
+
+.input::placeholder {
+  color: #CBD1DC;
+}
+
+.input:focus {
+  outline: none;
+  /* border-color: #148cd1; */
+  border-color:#39bda7 ;
 }
 </style>
